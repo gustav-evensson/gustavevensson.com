@@ -17,3 +17,6 @@ This contains a form where the user can input ther email, name and write a messa
 an email is send to the users email and alos to mine so that they get a confimation and i get a notification.
 At the bottom there are some links to my social media accounts.
 
+## Hosting
+It is hosted using firebase hosting mainly because the simplicity of the service and also because of the small size of the project
+
