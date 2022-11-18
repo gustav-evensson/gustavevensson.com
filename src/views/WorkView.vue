@@ -10,12 +10,12 @@
 					<path d="M22.25 2L2 22.25L22.25 42.5" stroke="black" stroke-width="4" stroke-linecap="round" stroke-linejoin="round" />
 				</svg>
 			</button>
-			<div class="CTA black large">
+			<a href="https://github.com/gustav-evensson" class="CTA black large">
 				<div class="border"></div>
-				<button @click="createProjects()">
+				<button>
 					<img src="../assets/tools/GitHubtools.png" alt="" :class="{ invertImage: !data.isDarkMode }" />
 				</button>
-			</div>
+			</a>
 		</div>
 		<div class="projects">
             <div class="small">

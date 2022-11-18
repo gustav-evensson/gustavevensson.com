@@ -69,22 +69,22 @@
 		<section id="work">
 			<h3 class="title">My work</h3>
 			<div class="featured">
-				<router-link to="/aerialshots" class="projectLink">
+				<a href="https://github.com/gustav-evensson/aerialshots" class="projectLink">
 					<img src="../assets/featuredProjects/aerialshotsThumb.jpg" alt="AerialShots" :class="{ darkenImage: data.isDarkMode }" />
 					<p>View More</p>
-				</router-link>
-				<router-link to="/colortinter" class="projectLink">
+				</a>
+				<a href="https://github.com/gustav-evensson/color-tinter" class="projectLink">
 					<img src="../assets/featuredProjects/colortinterThumb.jpg" alt="ColorTinter" :class="{ darkenImage: data.isDarkMode }" />
 					<p>View More</p>
-				</router-link>
-				<router-link to="/geweb" class="projectLink">
+				</a>
+				<a href="https://github.com/gustav-evensson/geweb" class="projectLink">
 					<img src="../assets/featuredProjects/gewebThumb.jpg" alt="GeWeb" :class="{ darkenImage: data.isDarkMode }" />
 					<p>View More</p>
-				</router-link>
-				<router-link to="/allstore" class="projectLink">
+				</a>
+				<a href="https://github.com/gustav-evensson/allstore" class="projectLink">
 					<img src="../assets/featuredProjects/allstoreThumb.jpg" alt="AllStore" :class="{ darkenImage: data.isDarkMode }" />
 					<p>View More</p>
-				</router-link>
+				</a>
 			</div>
 			<div class="CTA black large">
 				<div class="border"></div>
@@ -96,9 +96,9 @@
 					<img src="../assets/tools/HTMLtools.png" alt="" />
 					<img src="../assets/tools/CSStools.png" alt="" />
 					<img src="../assets/tools/JStools.png" alt="" />
+					<img src="../assets/tools/vuetools.png" alt="" />
 					<img src="../assets/tools/figmatools.png" alt="" />
 					<img src="../assets/tools/vs_codetools.png" alt="" />
-					<img src="../assets/tools/vuetools.png" alt="" />
 					<img src="../assets/tools/Firebasetools.png" alt="" />
 					<img src="../assets/tools/GitHubtools.png" :class="{ invertImage: data.isDarkMode }" alt="" />
 				</div>
@@ -106,22 +106,19 @@
 		</section>
 		<section id="contact">
 			<h3 class="title">Contact Me</h3>
-			<form @submit.prevent="sendMessage()">
+			<form @submit.prevent="sendMsg()">
 				<div class="credentials">
 					<input type="text" placeholder="Your name..." class="credInput inputStyle" v-model="data.clientName" />
 					<input type="email" placeholder="Your E-mail..." class="credInput inputStyle" v-model="data.clientEmail" />
 				</div>
-				<textarea class="inputStyle msgInput" placeholder="Your message..."></textarea>
+				<textarea class="inputStyle msgInput" placeholder="Your message..." v-model="data.clientMessage"></textarea>
 				<div class="bottomArea">
 					<div class="CTA large">
 						<div class="border"></div>
-						<button>Send Message</button>
+						<button type="submit" v-if="!data.sending">Send Message</button>
+						<button v-if="data.sending"><div class="loader"></div></button>
 					</div>
 					<div class="socials">
-						<!-- <button class="social">
-              <img src="../assets/socials/InstagramLogo.png" alt="">
-              <a href="https://www.instagram.com/gustav_evensson/"></a>
-            </button> -->
 						<a href="https://www.instagram.com/gustav_evensson/">
 							<img :class="{ invertImage: data.isDarkMode }" src="../assets/socials/InstagramLogo.png" alt="" />
 						</a>
@@ -140,6 +137,7 @@
 					</div>
 				</div>
 			</form>
+			<div :class="{response: true, show: data.response, error: data.error}">{{data.responseMsg}}</div>
 		</section>
 	</div>
 </template>
@@ -148,6 +146,7 @@
 import { onBeforeMount, onMounted, reactive } from 'vue';
 import { useStore } from 'vuex';
 import { useRouter } from 'vue-router';
+import sendMessage from '@/message/msg';
 
 export default {
 	setup() {
@@ -156,6 +155,7 @@ export default {
 		const data = reactive({
 			isDarkMode: true,
 			switchPage: true,
+			sending: false,
 			colors: {
 				primaryText: ['#000', '#fff'],
 				accentColor: ['#ff773d', '#BE5A2F'],
@@ -164,6 +164,9 @@ export default {
 			clientName: '',
 			clientEmail: '',
 			clientMessage: '',
+			responseMsg: '',
+			response: false,
+			error: false
 		});
 
 		function setColors() {
@@ -186,23 +189,42 @@ export default {
 			setTimeout(() => {
 				router.push(path);
 			}, 300);
-		
-    }
-    onBeforeMount(() => {
-      data.isDarkMode = store.state.isDarkMode;
-      setColors();
-    });
+		}
+
+		async function sendMsg(){
+			data.error = false
+			data.sending = true
+			const response = await sendMessage(data.clientEmail, data.clientName, data.clientMessage)
+			data.sending = false
+			data.response = true
+			if(response.status == 200){
+				data.responseMsg = "Thank you, I will be in touch!"
+			}
+			else{
+				data.error = true
+				data.responseMsg = response.text
+			}
+			setTimeout(() => {
+				data.response = false
+			}, 2000);
+		}
+
+		onBeforeMount(() => {
+			data.isDarkMode = store.state.isDarkMode;
+			setColors();
+		});
 
 		onMounted(() => {
 			setTimeout(() => {
 				data.switchPage = false;
 			}, 100);
 		});
-    
+
 		return {
 			data,
 			switchTheme,
 			switchPage,
+			sendMsg
 		};
 	},
 };
