@@ -204,6 +204,7 @@ export default {
 				data.error = true
 				data.responseMsg = response.text
 			}
+			data.clientMessage = ''
 			setTimeout(() => {
 				data.response = false
 			}, 2000);
