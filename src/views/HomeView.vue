@@ -69,7 +69,7 @@
 		<section id="work">
 			<h3 class="title">My work</h3>
 			<div class="featured">
-				<a href="https://github.com/gustav-evensson/aerialshots" class="projectLink">
+				<!-- <a href="https://github.com/gustav-evensson/aerialshots" class="projectLink">
 					<img src="../assets/featuredProjects/aerialshotsThumb.jpg" alt="AerialShots" :class="{ darkenImage: data.isDarkMode }" />
 					<p>View More</p>
 				</a>
@@ -84,7 +84,19 @@
 				<a href="https://github.com/gustav-evensson/allstore" class="projectLink">
 					<img src="../assets/featuredProjects/allstoreThumb.jpg" alt="AllStore" :class="{ darkenImage: data.isDarkMode }" />
 					<p>View More</p>
-				</a>
+				</a> -->
+				<div>
+					<img src="../assets/featuredProjects/aerialshotsThumb.jpg" alt="" :class="{ darkenImage: data.isDarkMode }"/><a href="https://github.com/gustav-evensson/aerialshots"><p>View more</p></a>
+				</div>
+				<div>
+					<img src="../assets/featuredProjects/colortinterThumb.jpg" alt="" :class="{ darkenImage: data.isDarkMode }"/><a href="https://github.com/gustav-evensson/color-tinter"><p>View more</p></a>
+				</div>
+				<div>
+					<img src="../assets/featuredProjects/gewebThumb.jpg" alt="" :class="{ darkenImage: data.isDarkMode }"/><a href="https://github.com/gustav-evensson/geweb"><p>View more</p></a>
+				</div>
+				<div>
+					<img src="../assets/featuredProjects/allstoreThumb.jpg" alt="" :class="{ darkenImage: data.isDarkMode }"/><a href="https://github.com/gustav-evensson/allstore"><p>View more</p></a>
+				</div>
 			</div>
 			<div class="CTA black large">
 				<div class="border"></div>
@@ -137,7 +149,7 @@
 					</div>
 				</div>
 			</form>
-			<div :class="{response: true, show: data.response, error: data.error}">{{data.responseMsg}}</div>
+			<div :class="{ response: true, show: data.response, error: data.error }">{{ data.responseMsg }}</div>
 		</section>
 	</div>
 </template>
@@ -166,7 +178,7 @@ export default {
 			clientMessage: '',
 			responseMsg: '',
 			response: false,
-			error: false
+			error: false,
 		});
 
 		function setColors() {
@@ -191,22 +203,21 @@ export default {
 			}, 300);
 		}
 
-		async function sendMsg(){
-			data.error = false
-			data.sending = true
-			const response = await sendMessage(data.clientEmail, data.clientName, data.clientMessage)
-			data.sending = false
-			data.response = true
-			if(response.status == 200){
-				data.responseMsg = "Thank you, I will be in touch!"
+		async function sendMsg() {
+			data.error = false;
+			data.sending = true;
+			const response = await sendMessage(data.clientEmail, data.clientName, data.clientMessage);
+			data.sending = false;
+			data.response = true;
+			if (response.status == 200) {
+				data.responseMsg = 'Thank you, I will be in touch!';
+			} else {
+				data.error = true;
+				data.responseMsg = response.text;
 			}
-			else{
-				data.error = true
-				data.responseMsg = response.text
-			}
-			data.clientMessage = ''
+			data.clientMessage = '';
 			setTimeout(() => {
-				data.response = false
+				data.response = false;
 			}, 2000);
 		}
 
@@ -225,7 +236,7 @@ export default {
 			data,
 			switchTheme,
 			switchPage,
-			sendMsg
+			sendMsg,
 		};
 	},
 };

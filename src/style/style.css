@@ -165,11 +165,13 @@ html {
 
 .projectLink {
   width: 100%;
+  aspect-ratio: 16 / 9;
   display: -ms-grid;
   display: grid;
       grid-template-areas: 'stack';
   text-decoration: none;
   overflow: hidden;
+  position: relative;
 }
 
 .projectLink img {
@@ -458,11 +460,79 @@ html {
 }
 
 #work .featured {
+  width: 100%;
   aspect-ratio: 16 / 9;
   display: -ms-grid;
   display: grid;
-      grid-template-areas: '1 2' '3 4';
   gap: 20px;
+  -ms-grid-columns: 1fr 1fr;
+      grid-template-columns: 1fr 1fr;
+  -ms-grid-rows: 1fr 1fr;
+      grid-template-rows: 1fr 1fr;
+}
+
+#work .featured div {
+  width: 100%;
+  aspect-ratio: 16 / 9;
+  overflow: hidden;
+  position: relative;
+  -webkit-transition: all 300ms;
+  transition: all 300ms;
+}
+
+#work .featured div a {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  -webkit-transform: translate(-50%, -50%);
+          transform: translate(-50%, -50%);
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  opacity: 0;
+  text-decoration: none;
+  -webkit-transition: all 300ms;
+  transition: all 300ms;
+  width: 100%;
+  height: 100%;
+}
+
+#work .featured div a p {
+  font-size: 20px;
+  padding: 10px 15px;
+  background-color: #fff;
+  color: #000;
+  border-radius: 7px;
+  -webkit-box-shadow: 0px 8px 32px 0px rgba(0, 0, 0, 0.412);
+          box-shadow: 0px 8px 32px 0px rgba(0, 0, 0, 0.412);
+}
+
+#work .featured div img {
+  -o-object-fit: cover;
+     object-fit: cover;
+  width: 100%;
+  height: 100%;
+  -webkit-transition: all 300ms;
+  transition: all 300ms;
+  -webkit-filter: brightness(0.9);
+          filter: brightness(0.9);
+}
+
+#work .featured div:hover img {
+  -webkit-filter: brightness(0.8);
+          filter: brightness(0.8);
+}
+
+#work .featured div:hover a {
+  opacity: 1;
+  -webkit-backdrop-filter: blur(2px);
+          backdrop-filter: blur(2px);
 }
 
 #work .CTA {
@@ -519,7 +589,7 @@ html {
 }
 
 #contact {
-  padding-bottom: 200px;
+  padding-bottom: 100px;
   overflow: hidden;
   position: relative;
 }
@@ -598,7 +668,7 @@ html {
   height: 10px;
   border-radius: 5px;
   background-color: #fff;
-  opacity: .5;
+  opacity: 0.5;
   -webkit-animation: loading 1.5s infinite linear;
           animation: loading 1.5s infinite linear;
 }
@@ -718,7 +788,7 @@ html {
 }
 
 #contact .response.error {
-  background-color: #DC5151;
+  background-color: #dc5151;
   color: #fff;
 }
 
@@ -792,6 +862,7 @@ html {
   display: flex;
   aspect-ratio: 2 / 1;
   gap: 30px;
+  position: relative;
 }
 
 .moreWork .projects .small {
@@ -807,6 +878,11 @@ html {
 
 .moreWork .projects .big {
   width: 50%;
+}
+
+.moreWork .projects .small .projectLink,
+.moreWork .projects .big .projectLink {
+  aspect-ratio: unset;
 }
 
 /* Overwriting styles */
@@ -855,9 +931,6 @@ html {
   #work {
     padding-block: 100px;
   }
-  #contact {
-    margin-bottom: 100px;
-  }
   #contact form .credentials {
     -webkit-box-orient: vertical;
     -webkit-box-direction: normal;
@@ -877,7 +950,8 @@ html {
             flex-direction: column;
     aspect-ratio: 1/2;
   }
-  .moreWork .projects .small, .moreWork .projects .big {
+  .moreWork .projects .small,
+  .moreWork .projects .big {
     width: 100%;
     height: 50%;
   }
@@ -908,7 +982,12 @@ html {
     font-size: 24px;
   }
   #work .featured {
-        grid-template-areas: '1' '2' '3' '4';
+    aspect-ratio: unset;
+    -ms-grid-columns: 1fr;
+        grid-template-columns: 1fr;
+    -ms-grid-rows: (1fr)[4];
+        grid-template-rows: repeat(4, 1fr);
+    max-height: none;
   }
   #work .toolsContainer .tools img {
     height: 42px;
@@ -924,6 +1003,10 @@ html {
     -webkit-box-direction: normal;
         -ms-flex-direction: column;
             flex-direction: column;
+  }
+  .moreWork .projects .small .projectLink,
+  .moreWork .projects .big .projectLink {
+    aspect-ratio: 16 / 9;
   }
   .title {
     font-size: 32px;
