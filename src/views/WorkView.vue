@@ -18,28 +18,7 @@
 			</a>
 		</div>
 		<div class="projects">
-            <div class="small">
-                <a href="" class="projectLink">
-                    <img src="../assets/featuredProjects/aerialshotsThumb.jpg" alt="">
-                    <p>View More</p>
-                </a>
-                <a href="" class="projectLink">
-                    <img src="../assets/featuredProjects/gewebThumb.jpg" alt="">
-                    <p>View More</p>
-                </a>
-                <a href="" class="projectLink">
-                    <img src="../assets/featuredProjects/allstoreThumb.jpg" alt="">
-                    <p>View More</p>
-                </a>
-                <a href="" class="projectLink">
-                    <img src="../assets/featuredProjects/colortinterThumb.jpg" alt="">
-                    <p>View More</p>
-                </a>
-            </div>
-			<a href="" class="big projectLink">
-				<img src="../assets/featuredProjects/colortinterThumb.jpg" alt="test">
-                <p>View More</p>
-			</a>
+            <div v-for="(project, index) in projectList" :key="index"></div>
 		</div>
 	</div>
 </template>
