@@ -69,33 +69,9 @@
 		<section id="work">
 			<h3 class="title">My work</h3>
 			<div class="featured">
-				<!-- <a href="https://github.com/gustav-evensson/aerialshots" class="projectLink">
-					<img src="../assets/featuredProjects/aerialshotsThumb.jpg" alt="AerialShots" :class="{ darkenImage: data.isDarkMode }" />
-					<p>View More</p>
-				</a>
-				<a href="https://github.com/gustav-evensson/color-tinter" class="projectLink">
-					<img src="../assets/featuredProjects/colortinterThumb.jpg" alt="ColorTinter" :class="{ darkenImage: data.isDarkMode }" />
-					<p>View More</p>
-				</a>
-				<a href="https://github.com/gustav-evensson/geweb" class="projectLink">
-					<img src="../assets/featuredProjects/gewebThumb.jpg" alt="GeWeb" :class="{ darkenImage: data.isDarkMode }" />
-					<p>View More</p>
-				</a>
-				<a href="https://github.com/gustav-evensson/allstore" class="projectLink">
-					<img src="../assets/featuredProjects/allstoreThumb.jpg" alt="AllStore" :class="{ darkenImage: data.isDarkMode }" />
-					<p>View More</p>
-				</a> -->
-				<div>
-					<img src="../assets/featuredProjects/aerialshotsThumb.jpg" alt="" :class="{ darkenImage: data.isDarkMode }"/><a href="https://github.com/gustav-evensson/aerialshots"><p>View more</p></a>
-				</div>
-				<div>
-					<img src="../assets/featuredProjects/colortinterThumb.jpg" alt="" :class="{ darkenImage: data.isDarkMode }"/><a href="https://github.com/gustav-evensson/color-tinter"><p>View more</p></a>
-				</div>
-				<div>
-					<img src="../assets/featuredProjects/gewebThumb.jpg" alt="" :class="{ darkenImage: data.isDarkMode }"/><a href="https://github.com/gustav-evensson/geweb"><p>View more</p></a>
-				</div>
-				<div>
-					<img src="../assets/featuredProjects/allstoreThumb.jpg" alt="" :class="{ darkenImage: data.isDarkMode }"/><a href="https://github.com/gustav-evensson/allstore"><p>View more</p></a>
+				<div v-for="(project,index) in featuredProjects" :key="index">
+					<img :src="project.image" :alt="project.name" >
+					<a :href="project.path"><p>View More</p></a>
 				</div>
 			</div>
 			<div class="CTA black large">
@@ -156,6 +132,7 @@
 
 <script>
 import { onBeforeMount, onMounted, reactive } from 'vue';
+import projects from '../../projects.json';
 import { useStore } from 'vuex';
 import { useRouter } from 'vue-router';
 import sendMessage from '@/message/msg';
@@ -237,6 +214,7 @@ export default {
 			switchTheme,
 			switchPage,
 			sendMsg,
+			featuredProjects: projects.featured
 		};
 	},
 };

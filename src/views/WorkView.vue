@@ -18,7 +18,10 @@
 			</a>
 		</div>
 		<div class="projects">
-            <div v-for="(project, index) in projectList" :key="index"></div>
+            <div v-for="(project, index) in projects" :key="index" :class="project.class">
+				<img class="thumbnail" :src="project.image">
+				<a :href="project.path"><img src="../assets/linkImage.png" class="linkImage" alt="View More"></a>
+			</div>
 		</div>
 	</div>
 </template>
@@ -26,6 +29,7 @@
 <script>
 import { useRouter } from 'vue-router';
 import { onBeforeMount, onMounted, reactive } from 'vue';
+import projects from '../../projects.json'
 import { useStore } from 'vuex';
 export default {
 	setup() {
@@ -73,6 +77,7 @@ export default {
 			switchPage,
             getPhoto,
 			data,
+			projects: projects.projects
 		};
 	},
 };

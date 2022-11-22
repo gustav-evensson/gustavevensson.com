@@ -389,6 +389,10 @@ html {
   font-size: 42px;
 }
 
+#home .homeContent div:not(.imgContainer) {
+  z-index: 2;
+}
+
 #home .homeContent .imgContainer {
   width: 50%;
   border-radius: 50%;
@@ -398,6 +402,7 @@ html {
 
 #home .homeContent .imgContainer img {
   width: 100%;
+  height: 100%;
   border-radius: 50%;
   position: relative;
 }
@@ -461,7 +466,6 @@ html {
 
 #work .featured {
   width: 100%;
-  aspect-ratio: 16 / 9;
   display: -ms-grid;
   display: grid;
   gap: 20px;
@@ -484,8 +488,8 @@ html {
   position: absolute;
   top: 50%;
   left: 50%;
-  -webkit-transform: translate(-50%, -50%);
-          transform: translate(-50%, -50%);
+  -webkit-transform: translate(-50%, -45%);
+          transform: translate(-50%, -45%);
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -524,15 +528,19 @@ html {
           filter: brightness(0.9);
 }
 
+#work .featured div:hover {
+  cursor: pointer;
+}
+
 #work .featured div:hover img {
-  -webkit-filter: brightness(0.8);
-          filter: brightness(0.8);
+  -webkit-filter: brightness(0.7);
+          filter: brightness(0.7);
 }
 
 #work .featured div:hover a {
   opacity: 1;
-  -webkit-backdrop-filter: blur(2px);
-          backdrop-filter: blur(2px);
+  -webkit-transform: translate(-50%, -50%);
+          transform: translate(-50%, -50%);
 }
 
 #work .CTA {
@@ -813,9 +821,6 @@ html {
   -webkit-box-align: center;
       -ms-flex-align: center;
           align-items: center;
-  -webkit-box-pack: center;
-      -ms-flex-pack: center;
-          justify-content: center;
   gap: 50px;
   overflow-x: hidden;
   -webkit-transition: opacity 300ms;
@@ -857,32 +862,103 @@ html {
 }
 
 .moreWork .projects {
+  display: -ms-grid;
+  display: grid;
+  gap: 5px;
+      grid-template-areas: '1 2 big1 big1' '3 4 big1 big1' '5 big2 big2 6' '7 big2 big2 8' 'big3 big3 9 10' 'big3 big3 11 12';
+}
+
+.moreWork .projects div {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
-  aspect-ratio: 2 / 1;
-  gap: 30px;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  width: 100%;
+  height: 100%;
+  background-color: gray;
+  aspect-ratio: 1/1;
   position: relative;
+  overflow: hidden;
 }
 
-.moreWork .projects .small {
-  width: 50%;
-  display: -ms-grid;
-  display: grid;
-  -ms-grid-columns: 1fr 1fr;
-      grid-template-columns: 1fr 1fr;
-  -ms-grid-rows: 1fr 1fr;
-      grid-template-rows: 1fr 1fr;
-  gap: 30px;
+.moreWork .projects div .thumbnail {
+  width: 100%;
+  height: 100%;
+  -o-object-fit: cover;
+     object-fit: cover;
+  -webkit-filter: brightness(0.9);
+          filter: brightness(0.9);
 }
 
-.moreWork .projects .big {
-  width: 50%;
+.moreWork .projects div a {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  -webkit-transform: translate(-50%, -45%);
+          transform: translate(-50%, -45%);
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  opacity: 0;
+  text-decoration: none;
+  -webkit-transition: all 300ms;
+  transition: all 300ms;
+  width: 100%;
+  height: 100%;
 }
 
-.moreWork .projects .small .projectLink,
-.moreWork .projects .big .projectLink {
-  aspect-ratio: unset;
+.moreWork .projects div a .linkImage {
+  width: 30%;
+  min-width: 40px;
+  max-width: 150px;
+  -o-object-fit: cover;
+     object-fit: cover;
+}
+
+.moreWork .projects .big1 {
+  -ms-grid-row: 1;
+  -ms-grid-row-span: 2;
+  -ms-grid-column: 3;
+  -ms-grid-column-span: 2;
+  grid-area: big1;
+}
+
+.moreWork .projects .big2 {
+  -ms-grid-row: 3;
+  -ms-grid-row-span: 2;
+  -ms-grid-column: 2;
+  -ms-grid-column-span: 2;
+  grid-area: big2;
+}
+
+.moreWork .projects .big3 {
+  -ms-grid-row: 5;
+  -ms-grid-row-span: 2;
+  -ms-grid-column: 1;
+  -ms-grid-column-span: 2;
+  grid-area: big3;
+}
+
+.moreWork .projects div:hover .thumbnail {
+  -webkit-filter: brightness(0.7);
+          filter: brightness(0.7);
+}
+
+.moreWork .projects div:hover a {
+  opacity: 1;
+  -webkit-transform: translate(-50%, -50%);
+          transform: translate(-50%, -50%);
 }
 
 /* Overwriting styles */
@@ -904,8 +980,20 @@ html {
 }
 
 @media screen and (max-width: 1055px) {
+  #home {
+    z-index: 3;
+  }
   #home .homeContent .imgContainer {
-    display: none;
+    position: absolute;
+    top: 0px;
+    right: 0px;
+    width: 70%;
+    min-width: 500px;
+    opacity: 0.5;
+  }
+  #home .homeContent .imgContainer::after {
+    -webkit-box-shadow: inset 0px 0px 30px 50px var(--bgColor);
+            box-shadow: inset 0px 0px 30px 50px var(--bgColor);
   }
   .bgArt {
     height: 80%;
@@ -922,6 +1010,10 @@ html {
   }
   .title {
     font-size: 48px;
+  }
+  #about .bgArt {
+    padding: 120px;
+    border-radius: 0 0 0 150px;
   }
   #about .aboutText p {
     width: 100%;
@@ -943,21 +1035,12 @@ html {
   .moreWork .backArrow svg {
     height: 32px;
   }
-  .moreWork .projects {
-    -webkit-box-orient: vertical;
-    -webkit-box-direction: normal;
-        -ms-flex-direction: column;
-            flex-direction: column;
-    aspect-ratio: 1/2;
-  }
-  .moreWork .projects .small,
-  .moreWork .projects .big {
-    width: 100%;
-    height: 50%;
-  }
 }
 
 @media screen and (max-width: 600px) {
+  #home .homeContent .imgContainer {
+    min-width: 300px;
+  }
   #contact form .bottomArea {
     -webkit-box-orient: vertical;
     -webkit-box-direction: normal;
