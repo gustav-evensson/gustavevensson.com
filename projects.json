@@ -3,47 +3,47 @@
         {
             "name": "AerialShots",
             "path": "https://github.com/gustav-evensson/aerialshots",
-            "image": "https://firebasestorage.googleapis.com/v0/b/gustavevensson-521bf.appspot.com/o/aerialshotsThumb.jpg?alt=media&token=5f01965e-17f5-4395-b69e-e4413cd3a836"
+            "image": "https://firebasestorage.googleapis.com/v0/b/gustavevensson-521bf.appspot.com/o/aerialshotsThumb.jpg?alt=media&token=06fc8866-8a2f-410d-b254-37c77b6a8fc9"
         },
         {
             "name": "ColorTiter",
             "path": "https://github.com/gustav-evensson/color-tinter",
-            "image": "https://firebasestorage.googleapis.com/v0/b/gustavevensson-521bf.appspot.com/o/colortinterThumb.jpg?alt=media&token=64aa144f-c445-4e54-95a0-0a9220a683f7"
+            "image": "https://firebasestorage.googleapis.com/v0/b/gustavevensson-521bf.appspot.com/o/colortinterThumb.jpg?alt=media&token=b67fcc31-078a-43ae-aa9e-6e8756f61bcb"
         },
         {
             "name": "AllStore",
             "path": "https://github.com/gustav-evensson/allstore",
-            "image": "https://firebasestorage.googleapis.com/v0/b/gustavevensson-521bf.appspot.com/o/allstoreThumb.jpg?alt=media&token=e9a44dc8-a1c3-4116-9842-00a5c5992672"
+            "image": "https://firebasestorage.googleapis.com/v0/b/gustavevensson-521bf.appspot.com/o/allstoreThumb.jpg?alt=media&token=f38d1811-3a4d-4e1b-a836-b578a63ac89e"
         },
         {
             "name": "GeWeb",
             "path": "https://github.com/gustav-evensson/geweb",
-            "image": "https://firebasestorage.googleapis.com/v0/b/gustavevensson-521bf.appspot.com/o/gewebThumb.jpg?alt=media&token=9a902495-b73d-4b9b-99db-01177bd775a5"
+            "image": "https://firebasestorage.googleapis.com/v0/b/gustavevensson-521bf.appspot.com/o/gewebThumb.jpg?alt=media&token=5043392d-54cf-46f1-833a-c9285853cd1b"
         }
     ],
     "projects": [
         {
             "name": "AerialShots",
             "path": "https://github.com/gustav-evensson/aerialshots",
-            "image": "https://firebasestorage.googleapis.com/v0/b/gustavevensson-521bf.appspot.com/o/aerialshotsThumb.jpg?alt=media&token=5f01965e-17f5-4395-b69e-e4413cd3a836",
+            "image": "https://firebasestorage.googleapis.com/v0/b/gustavevensson-521bf.appspot.com/o/aerialshotsThumb.jpg?alt=media&token=06fc8866-8a2f-410d-b254-37c77b6a8fc9",
             "class": "big1"
         },
         {
             "name": "ColorTinter",
             "path": "https://github.com/gustav-evensson/color-tinter",
-            "image": "https://firebasestorage.googleapis.com/v0/b/gustavevensson-521bf.appspot.com/o/colortinterThumb.jpg?alt=media&token=64aa144f-c445-4e54-95a0-0a9220a683f7",
+            "image": "https://firebasestorage.googleapis.com/v0/b/gustavevensson-521bf.appspot.com/o/colortinterThumb.jpg?alt=media&token=b67fcc31-078a-43ae-aa9e-6e8756f61bcb",
             "class": "big2"
         },
         {
             "name": "AllStore",
             "path": "https://github.com/gustav-evensson/allstore",
-            "image": "https://firebasestorage.googleapis.com/v0/b/gustavevensson-521bf.appspot.com/o/allstoreThumb.jpg?alt=media&token=e9a44dc8-a1c3-4116-9842-00a5c5992672",
+            "image": "https://firebasestorage.googleapis.com/v0/b/gustavevensson-521bf.appspot.com/o/allstoreThumb.jpg?alt=media&token=f38d1811-3a4d-4e1b-a836-b578a63ac89e",
             "class": "big3"
         },
         {
             "name": "GeWeb",
             "path": "https://github.com/gustav-evensson/geweb",
-            "image": "https://firebasestorage.googleapis.com/v0/b/gustavevensson-521bf.appspot.com/o/gewebThumb.jpg?alt=media&token=9a902495-b73d-4b9b-99db-01177bd775a5",
+            "image": "https://firebasestorage.googleapis.com/v0/b/gustavevensson-521bf.appspot.com/o/gewebThumb.jpg?alt=media&token=5043392d-54cf-46f1-833a-c9285853cd1b",
             "class": "small"
         }
     ]
