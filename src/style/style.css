@@ -859,102 +859,60 @@ html {
   height: 70%;
 }
 
-.moreWork .projects {
-  display: -ms-grid;
-  display: grid;
-  gap: 5px;
-      grid-template-areas: '1 2 big1 big1' '3 4 big1 big1' '5 big2 big2 6' '7 big2 big2 8' 'big3 big3 9 10' 'big3 big3 11 12';
+.moreWork .projects .projectHeader {
+  font-size: 32px;
+  font-weight: 400;
+  color: var(--primaryText);
+  margin-bottom: 30px;
 }
 
-.moreWork .projects div {
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
-  -webkit-box-pack: center;
-      -ms-flex-pack: center;
-          justify-content: center;
-  -webkit-box-align: center;
-      -ms-flex-align: center;
-          align-items: center;
+.moreWork .projects .topProjects {
   width: 100%;
-  height: 100%;
-  background-color: gray;
-  aspect-ratio: 1/1;
-  position: relative;
+  margin-bottom: 50px;
+}
+
+.moreWork .projects .topProjects .carouselView {
+  width: 100%;
+}
+
+.moreWork .projects .smallProjects {
+  width: 100%;
+}
+
+.moreWork .projects .smallProjects .smallProjectsContainer {
+  display: -ms-grid;
+  display: grid;
+  -ms-grid-columns: (minmax(300px, 1fr))[auto-fit];
+      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 10px;
+}
+
+.moreWork .projects .smallProjects .smallProjectsContainer a {
+  display: -ms-grid;
+  display: grid;
+      grid-template-areas: "stack";
   overflow: hidden;
 }
 
-.moreWork .projects div .thumbnail {
+.moreWork .projects .smallProjects .smallProjectsContainer a img {
   width: 100%;
   height: 100%;
   -o-object-fit: cover;
      object-fit: cover;
-}
-
-.moreWork .projects div a {
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  -webkit-transform: translate(-50%, -45%);
-          transform: translate(-50%, -45%);
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
-  -webkit-box-align: center;
-      -ms-flex-align: center;
-          align-items: center;
-  -webkit-box-pack: center;
-      -ms-flex-pack: center;
-          justify-content: center;
-  opacity: 0;
-  text-decoration: none;
-  -webkit-transition: all 300ms;
-  transition: all 300ms;
-  width: 100%;
-  height: 100%;
-}
-
-.moreWork .projects div a .linkImage {
-  width: 30%;
-  min-width: 40px;
-  max-width: 150px;
-  -o-object-fit: cover;
-     object-fit: cover;
-}
-
-.moreWork .projects .big1 {
+  -webkit-transition: scale 300ms, -webkit-filter 300ms;
+  transition: scale 300ms, -webkit-filter 300ms;
+  transition: scale 300ms, filter 300ms;
+  transition: scale 300ms, filter 300ms, -webkit-filter 300ms;
+  position: relative;
   -ms-grid-row: 1;
-  -ms-grid-row-span: 2;
-  -ms-grid-column: 3;
-  -ms-grid-column-span: 2;
-  grid-area: big1;
-}
-
-.moreWork .projects .big2 {
-  -ms-grid-row: 3;
-  -ms-grid-row-span: 2;
-  -ms-grid-column: 2;
-  -ms-grid-column-span: 2;
-  grid-area: big2;
-}
-
-.moreWork .projects .big3 {
-  -ms-grid-row: 5;
-  -ms-grid-row-span: 2;
   -ms-grid-column: 1;
-  -ms-grid-column-span: 2;
-  grid-area: big3;
+  grid-area: stack;
 }
 
-.moreWork .projects div:hover .thumbnail {
+.moreWork .projects .smallProjects .smallProjectsContainer a:hover img {
+  scale: 1.1;
   -webkit-filter: brightness(0.7);
           filter: brightness(0.7);
-}
-
-.moreWork .projects div:hover a {
-  opacity: 1;
-  -webkit-transform: translate(-50%, -50%);
-          transform: translate(-50%, -50%);
 }
 
 /* Overwriting styles */
@@ -1051,6 +1009,10 @@ html {
   #contact form .bottomArea .CTA button {
     width: 100%;
   }
+  .moreWork .projects .smallProjects .smallProjectsContainer {
+    -ms-grid-columns: 1fr;
+        grid-template-columns: 1fr;
+  }
 }
 
 @media screen and (max-width: 500px) {
@@ -1071,21 +1033,8 @@ html {
   #work .toolsContainer .tools img {
     height: 42px;
   }
-  .moreWork .projects {
-    aspect-ratio: unset;
-  }
-  .moreWork .projects .small {
-    display: -webkit-box;
-    display: -ms-flexbox;
-    display: flex;
-    -webkit-box-orient: vertical;
-    -webkit-box-direction: normal;
-        -ms-flex-direction: column;
-            flex-direction: column;
-  }
-  .moreWork .projects .small .projectLink,
-  .moreWork .projects .big .projectLink {
-    aspect-ratio: 16 / 9;
+  .moreWork .projects .projectHeader {
+    font-size: 24px;
   }
   .title {
     font-size: 32px;
