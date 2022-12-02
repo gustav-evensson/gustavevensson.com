@@ -18,9 +18,17 @@
 			</a>
 		</div>
 		<div class="projects">
-            <div v-for="(project, index) in projects" :key="index" :class="project.class">
-				<img class="thumbnail" :src="project.image">
-				<a :href="project.path"><img src="../assets/linkImage.png" class="linkImage" alt="View More"></a>
+            <div class="topProjects">
+				<h2 class="projectHeader">Top Projects</h2>
+				<carousel :carouselData="projects.topProjects"/>
+			</div>
+			<div class="smallProjects">
+				<h2 class="projectHeader">Small Projects</h2>
+				<div class="smallProjectsContainer">
+					<a v-for="(project, i) in projects.smallerProjects" :key="i" :href="project.path">
+						<img v-if="project.image" :src="project.image" alt="">
+					</a>
+				</div>
 			</div>
 		</div>
 	</div>
@@ -31,7 +39,12 @@ import { useRouter } from 'vue-router';
 import { onBeforeMount, onMounted, reactive } from 'vue';
 import projects from '../../projects.json'
 import { useStore } from 'vuex';
+import carousel from '@/components/carouselView.vue';
+
 export default {
+	components: {
+		carousel
+	},
 	setup() {
 		const router = useRouter();
 		const store = useStore();
@@ -77,7 +90,7 @@ export default {
 			switchPage,
             getPhoto,
 			data,
-			projects: projects.projects
+			projects
 		};
 	},
 };
