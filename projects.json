@@ -48,6 +48,11 @@
 			"name": "MNTN",
 			"path": "https://github.com/gustav-evensson/MNTN",
 			"image": "https://firebasestorage.googleapis.com/v0/b/gustavevensson-521bf.appspot.com/o/mntnThumb.jpg?alt=media&token=3e290489-3299-42db-bc84-f6b7b645cf67"
+		},
+        {
+			"name": "Calculator",
+			"path": "https://github.com/gustav-evensson/calculator-app",
+			"image": "https://firebasestorage.googleapis.com/v0/b/gustavevensson-521bf.appspot.com/o/calculatorThumb.jpg?alt=media&token=930892ba-f22e-44bb-8483-5aab9e67908e"
 		}
     ]
 }
