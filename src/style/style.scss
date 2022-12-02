@@ -10,14 +10,19 @@
 	transition: color 300ms, background-color 300ms, border-color 300ms, fill 300ms;
 }
 
-html {
-	scroll-behavior: smooth;
-}
+
 
 :root {
 	--primaryText: #000;
 	--accentColor: #ff773d;
 	--bgColor: #fff;
+}
+
+html {
+	scroll-behavior: smooth;
+}
+body, html{
+	background-color: var(--bgColor);
 }
 
 #app {
