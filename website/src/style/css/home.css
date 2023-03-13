@@ -9,6 +9,7 @@
   justify-content: center;
   align-items: center;
   min-height: 100vh;
+  overflow: hidden;
 }
 #home .homeContent {
   display: flex;
@@ -19,6 +20,7 @@
 }
 #home .homeContent h1 {
   cursor: default;
+  text-align: center;
   font-size: clamp(24px, 5vw, 64px);
   text-align: center;
   text-transform: uppercase;

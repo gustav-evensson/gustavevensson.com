@@ -7,7 +7,7 @@
 	display: flex;
 	align-items: center;
 	gap: 64px;
-	padding: 150px 0;
+	padding: var(--section-gap) 0;
 	.sectionTitle {
 		width: 50%;
 	}
@@ -50,6 +50,10 @@
         flex-direction: column;
 		.sectionTitle, .imageContainer{
 			width: 100%;
+			img{
+				aspect-ratio: 1 / 1;
+			}
 		}
+
     }
 }

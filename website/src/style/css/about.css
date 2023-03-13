@@ -6,7 +6,7 @@
   display: flex;
   align-items: center;
   gap: 64px;
-  padding: 150px 0;
+  padding: var(--section-gap) 0;
 }
 #about .sectionTitle {
   width: 50%;
@@ -48,5 +48,8 @@
   }
   #about .sectionTitle, #about .imageContainer {
     width: 100%;
+  }
+  #about .sectionTitle img, #about .imageContainer img {
+    aspect-ratio: 1/1;
   }
 }

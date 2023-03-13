@@ -1,8 +1,14 @@
 :root {
   --text-color: #000000;
   --bg-color: #ffffff;
+  --section-gap: 150px;
 }
 
+@media screen and (max-width: 500px) {
+  :root {
+    --section-gap: 75px;
+  }
+}
 * {
   margin: 0;
   padding: 0;
@@ -18,12 +24,14 @@ html {
 
 body {
   background-color: var(--bg-color);
+  width: 100%;
   overflow-x: hidden;
 }
 
 #app {
   width: 100%;
   position: relative;
+  overflow-x: hidden;
 }
 
 ::-webkit-scrollbar {
