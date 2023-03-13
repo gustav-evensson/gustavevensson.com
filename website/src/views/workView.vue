@@ -6,6 +6,7 @@ import aerialShotsImg from '../assets/projectImages/aerialshots.jpg';
 import allStoreImg from '../assets/projectImages/allstore.jpg';
 import colorTinterImg from '../assets/projectImages/colortinter.jpg';
 import mntnImg from '../assets/projectImages/mntn.jpg';
+import alertsjsImg from '../assets/projectImages/alertsjs.jpg';
 import gustavevensson_01 from '../assets/projectImages/gustavevensson_01.jpg'
 
 const innerContainer = ref(null);
@@ -17,7 +18,8 @@ const projectDescriptions = {
 	colortinter:
 		'Color Tinter is a color tool mainly diracted towards frontend developers. It takes a color as the input and the return to the users a wide variety of different color spectrums. The color can be copied by clicking it but what makes Color Tinter different is its ability to return a copyable text of the entire spectrum wich can be changed from CSS variable to SCSS variables or an array with the colors in string format.',
 	mntn: 'This is a landigpage that i did not design but built from this predesigned figma project. I made some small changes and also implemented a responsive design for mobile/tablet users. Otherwise its a very simple project where i practiced building something from a predesigned project.',
-	ge_01: 'This is my old portfolio website i created a few years ago'
+	ge_01: 'This is my old portfolio website i created a few years ago',
+	alertsjs: "Alerts.js is a modern, lightweight and customizable javascript notifications/alerts library. It's built with JS and CSS and provides an AlertContainer class and functions to customize the notifications."
 };
 
 let touchstartX = 0;
@@ -85,11 +87,12 @@ onMounted(() => {
 		</div>
 		<div class="carousel">
 			<div ref="innerContainer" class="innerContainer">
-				<work-card web-path="https://color-tinter.web.app/" gitPath="https://github.com/gustav-evensson/color-tinter" class="selected" title="Color Tinter" :imgSrc="colorTinterImg" :projectDesc="projectDescriptions.colortinter" />
-				<work-card web-path="https://gustav-evensson.github.io/MNTN/" gitPath="https://github.com/gustav-evensson/MNTN" title="MNTN" :imgSrc="mntnImg" :projectDesc="projectDescriptions.mntn" />
-				<work-card web-path="https://aerialshots.se/" gitPath="https://github.com/gustav-evensson/aerialshots" title="AerialShots" :imgSrc="aerialShotsImg" :projectDesc="projectDescriptions.aerialshots" />
+				<work-card webPath="https://color-tinter.web.app/" gitPath="https://github.com/gustav-evensson/color-tinter" class="selected" title="Color Tinter" :imgSrc="colorTinterImg" :projectDesc="projectDescriptions.colortinter" />
+				<work-card webPath="https://gustav-evensson.github.io/MNTN/" gitPath="https://github.com/gustav-evensson/MNTN" title="MNTN" :imgSrc="mntnImg" :projectDesc="projectDescriptions.mntn" />
+				<work-card webPath="https://aerialshots.se/" gitPath="https://github.com/gustav-evensson/aerialshots" title="AerialShots" :imgSrc="aerialShotsImg" :projectDesc="projectDescriptions.aerialshots" />
+				<work-card webPath="https://www.npmjs.com/package/alerts.js" gitPath="https://github.com/gustav-evensson/alerts.js" :imgSrc="alertsjsImg" title="Alerts.js" :projectDesc="projectDescriptions.alertsjs" />
 				<work-card gitPath="https://github.com/gustav-evensson/gustavevensson.com_v1" :imgSrc="gustavevensson_01" title="gustavevensson.com v1" :projectDesc="projectDescriptions.ge_01" />
-				<work-card web-path="https://all-store-dae9a.web.app/" gitPath="https://github.com/gustav-evensson/allstore" title="AllStore" :imgSrc="allStoreImg" :projectDesc="projectDescriptions.allstore" />
+				<work-card webPath="https://all-store-dae9a.web.app/" gitPath="https://github.com/gustav-evensson/allstore" title="AllStore" :imgSrc="allStoreImg" :projectDesc="projectDescriptions.allstore" />
 			</div>
 		</div>
 	</section>
