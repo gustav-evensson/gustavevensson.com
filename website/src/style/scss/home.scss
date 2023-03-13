@@ -1,0 +1,77 @@
+@import '../css/app.css';
+
+.lift{
+    translate: 0 -10px;
+}
+
+#home {
+    position: relative;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	min-height: 100vh;
+    .homeContent{
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        gap: 16px;
+        padding: 0 5vw;
+        h1 {
+            cursor: default;
+            font-size: clamp(32px, 5vw, 64px);
+            text-align: center;
+            text-transform: uppercase;
+            color: var(--text-color);
+            -webkit-text-fill-color: transparent;
+            -webkit-text-stroke-width: 2px;
+            -webkit-text-stroke-color: var(--text-color);
+            span{
+                -webkit-text-fill-color: var(--text-color);
+                *{
+                    transition: translate 150ms cubic-bezier(.26,.71,.62,1.38);
+                }
+            }
+        }
+        .socialLinks{
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 32px;
+            flex-wrap: wrap;
+        }
+    }
+    .bgArt{
+        position: absolute;
+        right: -500px;
+        top: 0;
+        max-width: unset;
+        opacity: .3;
+        z-index: -1;
+    }
+}
+
+@media screen and (max-width: 500px) {
+    #home{
+        .homeContent{
+            .socialLinks{
+                gap: 16px;
+                // a{
+                //     scale: 0.8;
+                // }
+            }
+        }
+    }
+}
+@media screen and (max-width: 400px) {
+    #home{
+        .homeContent{
+            .socialLinks{
+                gap: 16px;
+                flex-direction: column;
+                // a{
+                //     scale: 0.8;
+                // }
+            }
+        }
+    }
+}

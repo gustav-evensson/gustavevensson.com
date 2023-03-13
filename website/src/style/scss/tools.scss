@@ -1,0 +1,33 @@
+@import '../css/app.css';
+
+.tools {
+    padding: 150px 0;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	gap: 64px;
+	width: 90%;
+	max-width: 1080px;
+	margin: auto;
+	flex-wrap: wrap;
+    .toolContainer{
+        height: 64px;
+        .github  {
+            opacity: 0.5;
+            transition: opacity 300ms;
+            path {
+                fill: var(--text-color);
+            }
+        }
+        .github:hover{
+            opacity: 1;
+        }
+        img {
+            filter: saturate(0);
+            transition: filter 300ms !important;
+        }
+        img:hover {
+            filter: saturate(1);
+        }
+    }
+}
