@@ -85,7 +85,7 @@ onMounted(() => {
 		</div>
 		<div class="carousel">
 			<div ref="innerContainer" class="innerContainer">
-				<work-card web-path="https://aerialshots.se/" :imgSrc="gustavevensson_01" title="gustavevensson.com v1" class="selected" :projectDesc="projectDescriptions.ge_01" />
+				<work-card gitPath="https://github.com/gustav-evensson/gustavevensson.com_v1" :imgSrc="gustavevensson_01" title="gustavevensson.com v1" class="selected" :projectDesc="projectDescriptions.ge_01" />
 				<work-card web-path="https://aerialshots.se/" gitPath="https://github.com/gustav-evensson/aerialshots" title="AerialShots" :imgSrc="aerialShotsImg" :projectDesc="projectDescriptions.aerialshots" />
 				<work-card web-path="https://gustav-evensson.github.io/MNTN/" gitPath="https://github.com/gustav-evensson/MNTN" title="MNTN" :imgSrc="mntnImg" :projectDesc="projectDescriptions.mntn" />
 				<work-card web-path="https://color-tinter.web.app/" gitPath="https://github.com/gustav-evensson/color-tinter" title="Color Tinter" :imgSrc="colorTinterImg" :projectDesc="projectDescriptions.colortinter" />

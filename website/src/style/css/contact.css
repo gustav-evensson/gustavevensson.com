@@ -93,3 +93,9 @@
 #contact form .aosDiv button:active {
   scale: 0.97;
 }
+
+@media screen and (max-width: 750px) {
+  #contact form .smallFields {
+    flex-direction: column;
+  }
+}

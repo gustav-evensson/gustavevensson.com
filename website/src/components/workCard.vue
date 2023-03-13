@@ -30,7 +30,7 @@ const props = defineProps({
 						</svg>
 						github repo
 					</a>
-					<a :href="props.wepPath">
+					<a v-if="props.webPath" :href="props.wepPath">
 						<svg width="32" height="32" viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg">
 							<path d="M27 12.5V5H19.5" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" />
 							<path d="M18 14L27 5" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" />
@@ -60,7 +60,7 @@ const props = defineProps({
 						</svg>
 						github repo
 					</a>
-					<a :href="props.webPath">
+					<a v-if="props.webPath" :href="props.webPath">
 						<svg class="websiteLinkIcon" width="32" height="32" viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg">
 							<path d="M27 12.5V5H19.5" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" />
 							<path d="M18 14L27 5" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" />

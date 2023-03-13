@@ -111,7 +111,8 @@
 					transition: opacity 300ms;
 					h3 {
 						font-weight: 300;
-						font-size: 32px;
+						// font-size: 32px;
+						font-size: clamp(24px, 5vw, 32px);
 						margin-bottom: 12px;
 						width: 100%;
 						text-align: center;
