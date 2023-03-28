@@ -12,7 +12,7 @@ import piniaPluginPersistedstate from 'pinia-plugin-persistedstate';
 import AOS from 'aos';
 import 'aos/dist/aos.css'; 
 
-AOS.init();
+AOS.init({once: true});
 
 const pinia = createPinia()
 pinia.use(piniaPluginPersistedstate);
