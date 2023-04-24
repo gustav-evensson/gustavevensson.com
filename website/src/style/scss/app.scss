@@ -5,7 +5,7 @@
 }
 
 @media screen and (max-width: 500px) {
-	:root{
+	:root {
 		--section-gap: 75px;
 	}
 }
@@ -17,10 +17,8 @@
 	font-family: 'Avenir', sans-serif;
 	font-kerning: none;
 	transition: background-color 300ms, color 300ms, stroke 300ms, fill 300ms;
-}
-
-html {
 	scroll-behavior: smooth;
+	-webkit-tap-highlight-color: transparent;
 }
 
 body {
@@ -107,8 +105,8 @@ body {
 }
 
 @media screen and (max-width: 1000px) {
-	.sectionTitle{
-		.sectionNumber{
+	.sectionTitle {
+		.sectionNumber {
 			left: 10%;
 		}
 	}
@@ -195,6 +193,7 @@ nav {
 				cursor: pointer;
 				display: grid;
 				grid-template-areas: 'stack';
+				z-index: 24;
 				svg {
 					grid-area: stack;
 					transition: scale 200ms;
@@ -235,6 +234,7 @@ nav {
 			}
 			.navMenu {
 				position: relative;
+				z-index: 25;
 				.menuBtn {
 					cursor: pointer;
 					pointer-events: all;
@@ -289,6 +289,7 @@ nav {
 						font-size: 24px;
 						translate: 50%, 0;
 						opacity: 0;
+						pointer-events: none;
 						border-left: solid 2px transparent;
 						transition: border 300ms;
 					}
@@ -298,8 +299,48 @@ nav {
 				.menuBtn {
 					rotate: 45deg;
 				}
+				.menuBg {
+					opacity: 1;
+					// pointer-events: all;
+				}
+				.menuItems a {
+					pointer-events: all;
+				}
 				.menuItems a:hover {
 					border-color: var(--text-color);
+				}
+			}
+			.menuBg {
+				position: fixed;
+				width: 100%;
+				height: 100%;
+				top: 0;
+				left: 0;
+				background-color: var(--bg-color);
+				opacity: 0;
+				pointer-events: none;
+				z-index: 23;
+				transition: opacity 300ms;
+			}
+			.menuBg.show{
+				opacity: 1;
+			}
+		}
+	}
+}
+
+@media screen and (max-width: 850px) {
+	nav {
+		.navItems {
+			.navActions {
+				.themeSwitch {
+					opacity: 0;
+					pointer-events: none;
+					transition: opacity 300ms;
+				}
+				.themeSwitch.showMobile {
+					opacity: 1;
+					pointer-events: all;
 				}
 			}
 		}

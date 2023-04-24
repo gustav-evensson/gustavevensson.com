@@ -134,19 +134,20 @@ function showMenu() {
 			</svg>
 
 			<div ref="navActions" class="navActions">
-				<div class="themeSwitch" @click="switchTheme()" :class="{ themeSwitched: data.isDarkMode }">
+				<div class="themeSwitch" @click="switchTheme()" :class="{ themeSwitched: data.isDarkMode, showMobile: data.showMenu }">
 					<sun-icon />
 					<moon-icon />
 				</div>
 				<div :class="{ showMenu: data.showMenu }" class="navMenu">
 					<menu-btn @click="showMenu()" />
 					<div ref="menuItems" class="menuItems">
-						<a href="#home">Home</a>
-						<a href="#about">About</a>
-						<a href="#work">Work</a>
-						<a href="#contact">Contact</a>
+						<a @click="showMenu()" href="#home">Home</a>
+						<a @click="showMenu()" href="#about">About</a>
+						<a @click="showMenu()" href="#work">Work</a>
+						<a @click="showMenu()" href="#contact">Contact</a>
 					</div>
 				</div>
+				<div class="menuBg" :class="{ show: data.showMenu }"></div>
 			</div>
 		</div>
 	</nav>

@@ -1,98 +1,114 @@
 <script setup>
-import { ref, onMounted } from 'vue';
-import workCard from '../components/workCard.vue';
+import { ref, onMounted, reactive } from 'vue';
+import projectCard from '../components/projectCard.vue';
 
 import aerialShotsImg from '../assets/projectImages/aerialshots.jpg';
 import allStoreImg from '../assets/projectImages/allstore.jpg';
 import colorTinterImg from '../assets/projectImages/colortinter.jpg';
 import mntnImg from '../assets/projectImages/mntn.jpg';
 import alertsjsImg from '../assets/projectImages/alertsjs.jpg';
-import gustavevensson_01 from '../assets/projectImages/gustavevensson_01.jpg'
+import gustavevensson_01 from '../assets/projectImages/gustavevensson_01.jpg';
 
-const innerContainer = ref(null);
-const projectDescriptions = {
-	aerialshots:
-		'This is a landigpage that i did not design but built from this predesigned figma project. I made some small changes and also implemented a responsive design for mobile/tabletusers. Otherwise its a very simple project where i practiced building something from a predesigned project.',
-	allstore:
-		'AllStore is a project i did solely for my own learning purpose. I tried to implement a few different functions that a had not worked on before. The website is not functional in any other way than visual content. I used an API from DummyJSON to get the products that are show on the page. I did not put that much time into the design on this project I felt I would rather focus on the functionality of the site.',
-	colortinter:
-		'Color Tinter is a color tool mainly diracted towards frontend developers. It takes a color as the input and the return to the users a wide variety of different color spectrums. The color can be copied by clicking it but what makes Color Tinter different is its ability to return a copyable text of the entire spectrum wich can be changed from CSS variable to SCSS variables or an array with the colors in string format.',
-	mntn: 'This is a landigpage that i did not design but built from this predesigned figma project. I made some small changes and also implemented a responsive design for mobile/tablet users. Otherwise its a very simple project where i practiced building something from a predesigned project.',
-	ge_01: 'This is my old portfolio website i created a few years ago',
-	alertsjs: "Alerts.js is a modern, lightweight and customizable javascript notifications/alerts library. It's built with JS and CSS and provides an AlertContainer class and functions to customize the notifications."
-};
-
-let touchstartX = 0;
-let touchendX = 0;
-let currentSlide = 0;
+const state = reactive({
+	showMoreProjects: false
+})
 
 onMounted(() => {
-	const items = innerContainer.value.childNodes;
-	const indexArray = [...items];
+	const track = document.getElementById('drag-track');
+	const images = document.querySelectorAll('.projectImage');
+	const dragContainer = document.querySelector('#work');
 
-	function checkDirection() {
-		if (touchendX < touchstartX) {
-			if (currentSlide == indexArray.length - 1) {
-				return currentSlide;
-			} else {
-				return currentSlide + 1;
-			}
-		}
-		if (touchendX > touchstartX) {
-			if (currentSlide == 0) {
-				return currentSlide;
-			} else {
-				return currentSlide - 1;
-			}
-		}
+	function calcOffset() {
+		// We can count with 50 since the width is set to 50vmin and 5 since the gap is 5vmin
+		const trackLenght = 50 * track.children.length + 5 * (track.children.length - 1);
+
+		const offset = -100 + (50 * 100) / trackLenght;
+
+		return offset;
 	}
 
-	items.forEach((item) => {
-		item.addEventListener('click', (e) => {
-			items.forEach((i) => {
-				i.classList.remove('selected');
+	const handleOnDown = (e) => (track.dataset.mouseDownAt = e.clientX);
+
+	const handleOnUp = () => {
+		track.dataset.mouseDownAt = '0';
+		track.dataset.prevPercentage = track.dataset.percentage;
+	};
+
+	const handleOnMove = (e) => {
+		if(window.innerWidth <= 850) {
+			images.forEach((image) => {
+				image.style.objectPosition = 'center'
 			});
-			innerContainer.value.style.transform = `translate(-${item.offsetWidth * indexArray.indexOf(item)}px, 0)`;
-			currentSlide = indexArray.indexOf(item);
-			item.classList.add('selected');
+			return
+		}
+		if (track.dataset.mouseDownAt === '0') return;
+
+		const mouseDelta = parseFloat(track.dataset.mouseDownAt) - e.clientX,
+			maxDelta = dragContainer.offsetWidth / 2;
+
+		const percentage = (mouseDelta / maxDelta) * -100,
+			nextPercentageUnconstrained = parseFloat(track.dataset.prevPercentage) + percentage,
+			nextPercentage = Math.max(Math.min(nextPercentageUnconstrained, 0), calcOffset());
+
+		track.dataset.percentage = nextPercentage;
+		track.animate(
+			{
+				transform: `translate(${nextPercentage}%, -50%)`,
+			},
+			{ duration: 1200, fill: 'forwards' }
+		);
+
+		images.forEach((image) => {
+			image.animate(
+				{
+					objectPosition: `${100 + nextPercentage}% center`,
+				},
+				{ duration: 1200, fill: 'forwards' }
+			);
 		});
-	});
+	};
 
-	innerContainer.value.addEventListener('touchstart', (e) => {
-		touchstartX = e.changedTouches[0].screenX;
-	});
+	dragContainer.onmousedown = (e) => handleOnDown(e);
 
-	innerContainer.value.addEventListener('touchend', (e) => {
-		touchendX = e.changedTouches[0].screenX;
-		currentSlide = checkDirection();
-		innerContainer.value.style.transform = `translate(-${indexArray[0].offsetWidth * currentSlide}px, 0)`;
-		items.forEach((i) => {
-			i.classList.remove('selected');
-		});
-		indexArray[currentSlide].classList.add('selected');
-	});
+	dragContainer.ontouchstart = (e) => handleOnDown(e.touches[0]);
 
-	window.addEventListener('resize', () => {
-		innerContainer.value.style.transform = `translate(-${indexArray[0].offsetWidth * currentSlide}px, 0)`;
-	});
+	dragContainer.onmouseup = (e) => handleOnUp(e);
+
+	dragContainer.ontouchend = (e) => handleOnUp(e.touches[0]);
+
+	dragContainer.onmousemove = (e) => handleOnMove(e);
+
+	dragContainer.ontouchmove = (e) => handleOnMove(e.touches[0]);
 });
 </script>
 
 <template>
 	<section id="work">
-		<div data-aos="fade-up" data-aos-offset="300" class="sectionTitle">
+		<div data-aos="fade-up" data-aos-offset="0" class="sectionTitle">
 			<span class="sectionNumber">02</span>
 			<h3>my work</h3>
 			<p>Here is some of my work, hope you like it!</p>
 		</div>
-		<div class="carousel">
-			<div ref="innerContainer" class="innerContainer">
-				<work-card webPath="https://color-tinter.web.app/" gitPath="https://github.com/gustav-evensson/color-tinter" class="selected" title="Color Tinter" :imgSrc="colorTinterImg" :projectDesc="projectDescriptions.colortinter" />
-				<work-card webPath="https://gustav-evensson.github.io/MNTN/" gitPath="https://github.com/gustav-evensson/MNTN" title="MNTN" :imgSrc="mntnImg" :projectDesc="projectDescriptions.mntn" />
-				<work-card webPath="https://aerialshots.se/" gitPath="https://github.com/gustav-evensson/aerialshots" title="AerialShots" :imgSrc="aerialShotsImg" :projectDesc="projectDescriptions.aerialshots" />
-				<work-card webPath="https://www.npmjs.com/package/alerts.js" gitPath="https://github.com/gustav-evensson/alerts.js" :imgSrc="alertsjsImg" title="Alerts.js" :projectDesc="projectDescriptions.alertsjs" />
-				<work-card gitPath="https://github.com/gustav-evensson/gustavevensson.com_v1" :imgSrc="gustavevensson_01" title="gustavevensson.com v1" :projectDesc="projectDescriptions.ge_01" />
-				<work-card webPath="https://all-store-dae9a.web.app/" gitPath="https://github.com/gustav-evensson/allstore" title="AllStore" :imgSrc="allStoreImg" :projectDesc="projectDescriptions.allstore" />
+		<div class="centerContainer">
+			<div id="drag-track" data-mouse-down-at="0" data-prev-percentage="0">
+				<project-card data-aos="fade-up" data-aos-delay="0" webPath="https://color-tinter.web.app/" gitPath="https://github.com/gustav-evensson/color-tinter" title="Color Tinter" :imgSrc="colorTinterImg" :tools="['vue', 'scss', 'firebase']"/>
+				<project-card data-aos="fade-up" data-aos-delay="100" webPath="https://gustav-evensson.github.io/MNTN/" gitPath="https://github.com/gustav-evensson/MNTN" title="MNTN" :imgSrc="mntnImg" :tools="['github pages', 'scss']"/>
+				<project-card data-aos="fade-up" data-aos-delay="200" webPath="https://aerialshots.se/" gitPath="https://github.com/gustav-evensson/aerialshots" title="AerialShots" :imgSrc="aerialShotsImg" :tools="['firebase']" />
+				<project-card data-aos="fade-up" data-aos-delay="300" webPath="https://www.npmjs.com/package/alerts.js?activeTab=readme" gitPath="https://github.com/gustav-evensson/alerts.js" :imgSrc="alertsjsImg" title="Alerts.js" :tools="['npm']" />
+				<project-card data-aos="fade-up" data-aos-delay="400" webPath="https://gustavevensson-v1.web.app/" gitPath="https://github.com/gustav-evensson/gustavevensson-v1" :imgSrc="gustavevensson_01" title="Portfolio v1" :tools="['vue', 'scss', 'firebase']" />
+			</div>
+		</div>
+		<div class="columnDisplay">
+			<project-card webPath="https://color-tinter.web.app/" gitPath="https://github.com/gustav-evensson/color-tinter" title="Color Tinter" :imgSrc="colorTinterImg" :tools="['vue', 'scss', 'firebase']"/>
+			<project-card webPath="https://gustav-evensson.github.io/MNTN/" gitPath="https://github.com/gustav-evensson/MNTN" title="MNTN" :imgSrc="mntnImg" :tools="['github pages', 'scss']"/>
+			<project-card webPath="https://aerialshots.se/" gitPath="https://github.com/gustav-evensson/aerialshots" title="AerialShots" :imgSrc="aerialShotsImg" :tools="['firebase']" />
+			<div class="showMoreProjects" :class="{ show: state.showMoreProjects }">
+				<project-card webPath="https://www.npmjs.com/package/alerts.js?activeTab=readme" gitPath="https://github.com/gustav-evensson/alerts.js" :imgSrc="alertsjsImg" title="Alerts.js" :tools="['npm']" />
+				<project-card webPath="https://gustavevensson-v1.web.app/" gitPath="https://github.com/gustav-evensson/gustavevensson-v1" :imgSrc="gustavevensson_01" title="Portfolio v1" :tools="['vue', 'scss', 'firebase']" />
+			</div>
+			<div class="showMoreBtnContainer">
+				<button v-if="!state.showMoreProjects" class="showMoreBtn" @click="state.showMoreProjects = true">Show More</button>
+				<button v-else class="showMoreBtn" @click="state.showMoreProjects = false">Show Less</button>
 			</div>
 		</div>
 	</section>

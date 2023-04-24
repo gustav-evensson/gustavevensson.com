@@ -1,219 +1,230 @@
 #work {
+  --item-width: 50vmin;
   width: 90%;
   max-width: 1080px;
   margin: auto;
   padding: var(--section-gap) 0;
 }
-#work .carousel {
-  width: 100%;
-  margin: auto;
-  aspect-ratio: 16/9;
-  overflow: visible;
-  margin-top: 100px;
+#work .centerContainer {
+  width: var(--item-width);
+  height: var(--item-width);
+  position: relative;
+  margin-top: 32px;
 }
-#work .carousel .innerContainer {
-  height: 100%;
-  width: 100%;
+#work .centerContainer #drag-track {
   display: flex;
-  transition: transform 500ms;
+  gap: calc(var(--item-width) / 10);
+  position: absolute;
+  left: 0;
+  top: 50%;
+  transform: translate(0, -50%);
+  user-select: none;
+  touch-action: none;
+  cursor: grab;
 }
-#work .carousel .carouselItem {
-  scroll-snap-align: center;
-  flex-shrink: 0;
-  height: 100%;
-  aspect-ratio: 16/9;
-  transform-origin: center center;
+#work .centerContainer #drag-track .projectCard {
+  height: var(--item-width);
+  width: var(--item-width);
   position: relative;
 }
-#work .carousel .carouselItem .itemContent {
-  width: 100%;
-  height: 100%;
-  scale: 0.95;
-  background-color: black;
-  position: relative;
-  cursor: pointer;
-  filter: saturate(0);
-  border-radius: 0 0 0 12px;
-  transition: scale 300ms, filter 300ms;
-}
-#work .carousel .carouselItem .itemContent img {
+#work .centerContainer #drag-track .projectCard img {
   width: 100%;
   height: 100%;
   object-fit: cover;
-  border-radius: 0 0 0 12px;
+  object-position: 100% center;
 }
-#work .carousel .carouselItem .itemContent .itemInfo {
-  pointer-events: none;
+#work .centerContainer #drag-track .projectCard .projectDetails {
   position: absolute;
-  width: 100%;
-  height: 100%;
-  top: 0;
-  left: 0;
-  background-color: hsla(213, 10%, 21%, 0.439);
-  padding: 24px;
-  display: flex;
-  align-items: flex-end;
-  justify-content: space-between;
-  backdrop-filter: blur(30px);
-  opacity: 0;
-  transition: opacity 300ms;
-  border-radius: 0 0 0 12px;
-}
-#work .carousel .carouselItem .itemContent .itemInfo .textContainer {
-  font-family: "Avenir", sans-serif;
-  color: hsl(0, 100%, 100%);
-  width: 50%;
-  scale: 0.9;
-  transition: scale 300ms;
-}
-#work .carousel .carouselItem .itemContent .itemInfo .textContainer h3 {
-  font-weight: 300;
-  font-size: 32px;
-  margin-bottom: 12px;
-}
-#work .carousel .carouselItem .itemContent .itemInfo .textContainer p {
-  font-weight: 300;
-  font-size: 20px;
-}
-#work .carousel .carouselItem .itemContent .itemInfo .itemActions a {
-  cursor: pointer;
-  font-family: "Avenir", sans-serif;
-  width: 270px;
-  color: white;
-  font-size: 24px;
-  font-weight: 200;
-  letter-spacing: 2px;
-  border: solid 2px white;
-  border-radius: 0 0 0 6px;
-  background-color: transparent;
-  padding: 10px 20px;
-  display: flex;
-  align-items: center;
-  gap: 20px;
-  text-decoration: none;
-  transition: scale 200ms;
-  margin-top: 24px;
-}
-#work .carousel .carouselItem .itemContent .itemInfo .itemActions a:hover {
-  scale: 1.03;
-}
-#work .carousel .carouselItem .itemContent .itemInfo .itemActions a:active {
-  scale: 0.97;
-}
-#work .carousel .carouselItem .itemContent .mobileContent {
-  display: none;
-  position: absolute;
-  width: 90vw;
   bottom: 0;
-  left: 50%;
-  translate: -50% 120%;
-  opacity: 0;
-  transition: opacity 300ms;
-}
-#work .carousel .carouselItem .itemContent .mobileContent h3 {
-  font-weight: 300;
-  font-size: clamp(24px, 5vw, 32px);
-  margin-bottom: 12px;
+  left: 0;
   width: 100%;
-  text-align: center;
+  translate: 0 100%;
+  padding-top: 16px;
   color: var(--text-color);
+  transition: opacity 600ms;
 }
-#work .carousel .carouselItem .itemContent .mobileContent .mobileItemActions {
+#work .centerContainer #drag-track .projectCard .projectDetails .titleActions {
   display: flex;
   align-items: center;
-  justify-content: center;
-  gap: 24px;
-  margin-top: 24px;
+  justify-content: space-between;
+  margin-bottom: 12px;
 }
-#work .carousel .carouselItem .itemContent .mobileContent .mobileItemActions a {
-  cursor: pointer;
-  font-family: "Avenir", sans-serif;
-  width: 270px;
-  color: var(--text-color);
-  font-size: 24px;
-  font-weight: 200;
-  letter-spacing: 2px;
-  border: solid 2px var(--text-color);
-  border-radius: 0 0 0 6px;
-  background-color: transparent;
-  padding: 10px 20px;
+#work .centerContainer #drag-track .projectCard .projectDetails .titleActions h3 {
+  font-size: 32px;
+  font-weight: 300;
+  translate: 0 32px;
+  opacity: 0;
+  transition: all 300ms;
+}
+#work .centerContainer #drag-track .projectCard .projectDetails .titleActions .actions {
   display: flex;
   align-items: center;
-  gap: 20px;
+  gap: 32px;
+  translate: 0 32px;
+  opacity: 0;
+  transition: all 300ms;
+}
+#work .centerContainer #drag-track .projectCard .projectDetails .titleActions .actions a {
+  color: var(--text-color);
   text-decoration: none;
   transition: scale 200ms;
 }
-#work .carousel .carouselItem .itemContent .mobileContent .mobileItemActions a .githubLinkIcon path {
-  fill: var(--text-color);
-}
-#work .carousel .carouselItem .itemContent .mobileContent .mobileItemActions a .websiteLinkIcon path {
+#work .centerContainer #drag-track .projectCard .projectDetails .titleActions .actions a svg path {
   stroke: var(--text-color);
 }
-#work .carousel .carouselItem .itemContent .mobileContent .mobileItemActions a:hover {
+#work .centerContainer #drag-track .projectCard .projectDetails .titleActions .actions a svg .fill {
+  fill: var(--text-color);
+  stroke: transparent;
+}
+#work .centerContainer #drag-track .projectCard .projectDetails .titleActions .actions a:hover,
+#work .centerContainer #drag-track .projectCard .projectDetails .titleActions .actions a:focus {
+  scale: 1.1;
+}
+#work .centerContainer #drag-track .projectCard .projectDetails .titleActions .actions a:active {
+  scale: 0.9;
+}
+#work .centerContainer #drag-track .projectCard .projectDetails .toolsUsed {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+}
+#work .centerContainer #drag-track .projectCard .projectDetails .toolsUsed p {
+  font-weight: 600;
+  font-size: 20px;
+  translate: 0 32px;
+  opacity: 0;
+  transition: all 300ms;
+}
+#work .centerContainer #drag-track .projectCard:hover .projectDetails .titleActions h3 {
+  translate: 0 0;
+  opacity: 1;
+}
+#work .centerContainer #drag-track .projectCard:hover .projectDetails .titleActions .actions {
+  translate: 0 0;
+  opacity: 1;
+  transition: all 300ms 100ms;
+}
+#work .centerContainer #drag-track .projectCard:hover .projectDetails .toolsUsed p {
+  translate: 0 0;
+  opacity: 1;
+}
+#work .centerContainer #drag-track .projectCard:hover .projectDetails .toolsUsed :nth-child(1) {
+  transition: all 300ms 200ms;
+}
+#work .centerContainer #drag-track .projectCard:hover .projectDetails .toolsUsed :nth-child(2) {
+  transition: all 300ms 300ms;
+}
+#work .centerContainer #drag-track .projectCard:hover .projectDetails .toolsUsed :nth-child(3) {
+  transition: all 300ms 400ms;
+}
+#work .centerContainer #drag-track:active {
+  cursor: grabbing;
+}
+#work .columnDisplay {
+  width: 100%;
+  display: none;
+}
+#work .columnDisplay .showMoreBtnContainer {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-top: 64px;
+}
+#work .columnDisplay .showMoreBtnContainer .showMoreBtn {
+  background-color: transparent;
+  border: solid 2px var(--text-color);
+  border-radius: 0 0 0 8px;
+  font-size: 20px;
+  padding: 10px;
+  width: 200px;
+  color: var(--text-color);
+  margin: auto;
+  cursor: pointer;
+  transition: scale 200ms;
+}
+#work .columnDisplay .showMoreBtnContainer .showMoreBtn:hover {
   scale: 1.03;
 }
-#work .carousel .carouselItem .itemContent .mobileContent .mobileItemActions a:active {
+#work .columnDisplay .showMoreBtnContainer .showMoreBtn:active {
   scale: 0.97;
 }
-#work .carousel .carouselItem .itemContent::before {
-  content: "";
-  position: absolute;
-  width: 90%;
-  height: 90%;
-  top: 0;
-  left: 0;
-  background-color: hsla(0, 0%, 44%, 0.1);
-  border: solid 2px hsla(0, 0%, 44%, 0.4);
-  border-radius: 0 0 0 12px;
-  z-index: -1;
-  transition: width 300ms, height 300ms, top 300ms, left 300ms;
+#work .columnDisplay .showMoreProjects {
+  height: 0;
+  opacity: 0;
+  width: 100%;
+  overflow: hidden;
+  transition: all 300ms;
 }
-#work .carousel .selected .itemContent {
-  scale: 1;
-  filter: saturate(1);
-  cursor: auto;
-}
-#work .carousel .selected .itemContent .itemInfo {
+#work .columnDisplay .showMoreProjects.show {
+  height: auto;
   opacity: 1;
-  pointer-events: all;
 }
-#work .carousel .selected .itemContent .itemInfo .textContainer {
-  scale: 1;
+#work .columnDisplay .projectCard {
+  margin-top: 64px;
+  width: 100%;
+  aspect-ratio: 1/1;
 }
-#work .carousel .selected .itemContent .mobileContent {
-  opacity: 1;
-  transition-delay: 300ms;
-}
-#work .carousel .selected .itemContent::before {
+#work .columnDisplay .projectCard img {
   width: 100%;
   height: 100%;
-  top: 8px;
-  left: 8px;
+  object-fit: cover;
+  object-position: center;
+}
+#work .columnDisplay .projectCard .projectDetails {
+  width: 100%;
+  padding-top: 16px;
+  color: var(--text-color);
+}
+#work .columnDisplay .projectCard .projectDetails .titleActions {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 12px;
+}
+#work .columnDisplay .projectCard .projectDetails .titleActions h3 {
+  font-size: 32px;
+  font-weight: 300;
+}
+#work .columnDisplay .projectCard .projectDetails .titleActions .actions {
+  display: flex;
+  align-items: center;
+  gap: 32px;
+}
+#work .columnDisplay .projectCard .projectDetails .titleActions .actions a {
+  color: var(--text-color);
+  text-decoration: none;
+  transition: scale 200ms;
+}
+#work .columnDisplay .projectCard .projectDetails .titleActions .actions a svg path {
+  stroke: var(--text-color);
+}
+#work .columnDisplay .projectCard .projectDetails .titleActions .actions a svg .fill {
+  fill: var(--text-color);
+  stroke: transparent;
+}
+#work .columnDisplay .projectCard .projectDetails .titleActions .actions a:hover,
+#work .columnDisplay .projectCard .projectDetails .titleActions .actions a:focus {
+  scale: 1.1;
+}
+#work .columnDisplay .projectCard .projectDetails .titleActions .actions a:active {
+  scale: 0.9;
+}
+#work .columnDisplay .projectCard .projectDetails .toolsUsed {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+}
+#work .columnDisplay .projectCard .projectDetails .toolsUsed p {
+  font-weight: 600;
+  font-size: 20px;
 }
 
 @media screen and (max-width: 850px) {
-  #work {
-    padding: var(--section-gap) 0 300px 0;
-  }
-  #work .carousel .carouselItem .itemContent .itemInfo {
+  #work .centerContainer {
     display: none;
   }
-  #work .carousel .carouselItem .itemContent .mobileContent {
+  #work .columnDisplay {
     display: block;
-  }
-  #work .carousel .selected .itemContent::before {
-    top: 4px;
-    left: 4px;
-  }
-}
-@media screen and (max-width: 600px) {
-  #work .carousel .carouselItem .itemContent .itemInfo {
-    display: none;
-  }
-  #work .carousel .carouselItem .itemContent .mobileContent {
-    display: block;
-  }
-  #work .carousel .carouselItem .itemContent .mobileContent .mobileItemActions {
-    flex-direction: column;
   }
 }
