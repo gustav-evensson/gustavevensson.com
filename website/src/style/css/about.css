@@ -11,20 +11,23 @@
 #about .sectionTitle {
   width: 50%;
 }
+#about .sectionTitle p span a {
+  color: var(--text-color);
+}
 #about .imageContainer {
   width: 50%;
   aspect-ratio: 1/1;
-  object-fit: cover;
+  -o-object-fit: cover;
+     object-fit: cover;
   position: relative;
   border-radius: 0 0 0 12px;
 }
 #about .imageContainer img {
   width: 100%;
   height: 100%;
-  object-fit: cover;
+  -o-object-fit: cover;
+     object-fit: cover;
   border-radius: 0 0 0 12px;
-  filter: saturate(0) contrast(1.1);
-  transition: filter 300ms;
 }
 #about .imageContainer::after {
   content: "";
@@ -38,9 +41,6 @@
   border-radius: 0 0 0 12px;
   z-index: -1;
 }
-#about .imageContainer:hover img {
-  filter: saturate(1) contrast(1);
-}
 
 @media screen and (max-width: 1050px) {
   #about {
@@ -52,4 +52,4 @@
   #about .sectionTitle img, #about .imageContainer img {
     aspect-ratio: 1/1;
   }
-}
+}/*# sourceMappingURL=about.css.map */

@@ -8,6 +8,7 @@ import colorTinterImg from '../assets/projectImages/colortinter.jpg';
 import mntnImg from '../assets/projectImages/mntn.jpg';
 import alertsjsImg from '../assets/projectImages/alertsjs.jpg';
 import gustavevensson_01 from '../assets/projectImages/gustavevensson_01.jpg';
+import gewebImg from '../assets/projectImages/geweb.jpg';
 
 const state = reactive({
 	showMoreProjects: false
@@ -44,7 +45,7 @@ onMounted(() => {
 		if (track.dataset.mouseDownAt === '0') return;
 
 		const mouseDelta = parseFloat(track.dataset.mouseDownAt) - e.clientX,
-			maxDelta = dragContainer.offsetWidth / 2;
+			maxDelta = dragContainer.offsetWidth;
 
 		const percentage = (mouseDelta / maxDelta) * -100,
 			nextPercentageUnconstrained = parseFloat(track.dataset.prevPercentage) + percentage,
@@ -92,6 +93,7 @@ onMounted(() => {
 		<div class="centerContainer">
 			<div id="drag-track" data-mouse-down-at="0" data-prev-percentage="0">
 				<project-card data-aos="fade-up" data-aos-delay="0" webPath="https://color-tinter.web.app/" gitPath="https://github.com/gustav-evensson/color-tinter" title="Color Tinter" :imgSrc="colorTinterImg" :tools="['vue', 'scss', 'firebase']"/>
+				<project-card data-aos="fade-up" data-aos-delay="0" webPath="https://geweb.se/" title="GeWeb" :imgSrc="gewebImg" :tools="['Nuxt', 'Vue', 'scss', 'firebase']"/>
 				<project-card data-aos="fade-up" data-aos-delay="100" webPath="https://gustav-evensson.github.io/MNTN/" gitPath="https://github.com/gustav-evensson/MNTN" title="MNTN" :imgSrc="mntnImg" :tools="['github pages', 'scss']"/>
 				<project-card data-aos="fade-up" data-aos-delay="200" webPath="https://aerialshots.se/" gitPath="https://github.com/gustav-evensson/aerialshots" title="AerialShots" :imgSrc="aerialShotsImg" :tools="['firebase']" />
 				<project-card data-aos="fade-up" data-aos-delay="300" webPath="https://www.npmjs.com/package/alerts.js?activeTab=readme" gitPath="https://github.com/gustav-evensson/alerts.js" :imgSrc="alertsjsImg" title="Alerts.js" :tools="['npm']" />
@@ -100,6 +102,7 @@ onMounted(() => {
 		</div>
 		<div class="columnDisplay">
 			<project-card webPath="https://color-tinter.web.app/" gitPath="https://github.com/gustav-evensson/color-tinter" title="Color Tinter" :imgSrc="colorTinterImg" :tools="['vue', 'scss', 'firebase']"/>
+			<project-card webPath="https://geweb.se/" title="GeWeb" :imgSrc="gewebImg" :tools="['Nuxt', 'Vue', 'scss', 'firebase']"/>
 			<project-card webPath="https://gustav-evensson.github.io/MNTN/" gitPath="https://github.com/gustav-evensson/MNTN" title="MNTN" :imgSrc="mntnImg" :tools="['github pages', 'scss']"/>
 			<project-card webPath="https://aerialshots.se/" gitPath="https://github.com/gustav-evensson/aerialshots" title="AerialShots" :imgSrc="aerialShotsImg" :tools="['firebase']" />
 			<div class="showMoreProjects" :class="{ show: state.showMoreProjects }">

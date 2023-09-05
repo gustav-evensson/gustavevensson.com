@@ -18,7 +18,9 @@
   left: 0;
   top: 50%;
   transform: translate(0, -50%);
-  user-select: none;
+  -webkit-user-select: none;
+     -moz-user-select: none;
+          user-select: none;
   touch-action: none;
   cursor: grab;
 }
@@ -30,8 +32,10 @@
 #work .centerContainer #drag-track .projectCard img {
   width: 100%;
   height: 100%;
-  object-fit: cover;
-  object-position: 100% center;
+  -o-object-fit: cover;
+     object-fit: cover;
+  -o-object-position: 100% center;
+     object-position: 100% center;
 }
 #work .centerContainer #drag-track .projectCard .projectDetails {
   position: absolute;
@@ -117,6 +121,9 @@
 #work .centerContainer #drag-track .projectCard:hover .projectDetails .toolsUsed :nth-child(3) {
   transition: all 300ms 400ms;
 }
+#work .centerContainer #drag-track .projectCard:hover .projectDetails .toolsUsed :nth-child(4) {
+  transition: all 300ms 500ms;
+}
 #work .centerContainer #drag-track:active {
   cursor: grabbing;
 }
@@ -168,8 +175,10 @@
 #work .columnDisplay .projectCard img {
   width: 100%;
   height: 100%;
-  object-fit: cover;
-  object-position: center;
+  -o-object-fit: cover;
+     object-fit: cover;
+  -o-object-position: center;
+     object-position: center;
 }
 #work .columnDisplay .projectCard .projectDetails {
   width: 100%;
@@ -227,4 +236,4 @@
   #work .columnDisplay {
     display: block;
   }
-}
+}/*# sourceMappingURL=work.css.map */
