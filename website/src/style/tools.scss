@@ -1,0 +1,81 @@
+@import './app.css';
+
+.tools {
+	width: 100%;
+	max-width: 1080px;
+    overflow: hidden;
+    margin: var(--section-gap) auto;
+    position: relative;
+    .toolsSlider{
+        display: flex;
+        align-items: center;
+        justify-content: space-evenly;
+        width: 200%;
+        animation: toolSlide 10000ms linear infinite;
+        z-index: -1;
+        .toolIcon{
+            filter: saturate(0);
+            opacity: .5;
+            transition: filter 150ms, opacity 150ms;
+        }
+    }
+}
+.tools:hover{
+    .toolsSlider{
+        animation-play-state: paused;
+    }
+}
+.tools .toolsSlider .toolIcon:hover{
+    filter: saturate(1);
+    opacity: 1;
+}
+.tools::after{
+    content: '';
+    height: 100%;
+    aspect-ratio: 1/1;
+    background: linear-gradient(270deg, rgba(217, 217, 217, 0.00) 0%, var(--bg-color) 100%);
+    left: 0;
+    top: 0;
+    position: absolute;
+    pointer-events: none;
+}
+.tools::before{
+    content: '';
+    height: 100%;
+    aspect-ratio: 1/1;
+    background: linear-gradient(270deg, var(--bg-color) 0%, rgba(217, 217, 217, 0.00) 100%);
+    right: 0;
+    top: 0;
+    position: absolute;
+    z-index: 2;
+    pointer-events: none;
+}
+
+@keyframes toolSlide {
+    from{
+        translate: 0 0;
+    }
+    to{
+        translate: -49% 0;
+    }
+}
+
+@media screen and (max-width: 950px){
+    .tools{
+        .toolsSlider{
+            .toolIcon{
+                height: 48px;
+            }
+        }
+    }
+}
+@media screen and (max-width: 750px){
+    .tools{
+        .toolsSlider{
+            width: 300%;
+            .toolIcon{
+                height: 32px;
+            }
+        } 
+    }
+}

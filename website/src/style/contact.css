@@ -1,4 +1,4 @@
-@import '../css/app.css';
+@import './app.css';
 .notificationContainer {
   background-color: var(--text-color);
   color: var(--bg-color);
@@ -99,4 +99,4 @@
   #contact form .smallFields {
     flex-direction: column;
   }
-}
+}/*# sourceMappingURL=contact.css.map */

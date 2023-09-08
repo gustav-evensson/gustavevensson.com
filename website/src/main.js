@@ -1,12 +1,12 @@
 import { createApp } from 'vue'
 import { createPinia } from 'pinia';
-import './style/css/reset.css'
-import './style/css/app.css'
-import './style/css/home.css'
-import './style/css/about.css'
-import './style/css/tools.css'
-import './style/css/work.css'
-import './style/css/contact.css'
+import './style/reset.css'
+import './style/app.css'
+import './style/home.css'
+import './style/about.css'
+import './style/tools.css'
+import './style/work.css'
+import './style/contact.css'
 import App from './App.vue'
 import piniaPluginPersistedstate from 'pinia-plugin-persistedstate';
 import AOS from 'aos';

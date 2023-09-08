@@ -14,4 +14,5 @@
 			<img src="../assets/geweb_logo.png" alt="geweb logo"/>
 		</div>
 	</section>
+	
 </template>

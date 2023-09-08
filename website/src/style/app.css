@@ -44,6 +44,7 @@ body {
   background: #999999;
   width: 5px;
   border-radius: 2.5px;
+  -webkit-transition: background 200ms;
   transition: background 200ms;
 }
 
@@ -60,6 +61,7 @@ body {
   font-weight: 400;
   align-items: center;
   position: relative;
+  width: -moz-fit-content;
   width: fit-content;
 }
 .standardLink svg path {
@@ -320,4 +322,4 @@ nav .navItems .navActions .menuBg.show {
     opacity: 1;
     pointer-events: all;
   }
-}
+}/*# sourceMappingURL=app.css.map */
