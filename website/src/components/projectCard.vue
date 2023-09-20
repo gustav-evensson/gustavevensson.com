@@ -47,7 +47,7 @@ const props = defineProps({
 				</div>
 			</div>
 			<div class="toolsUsed">
-				<p v-for="tool in props.tools">{{ tool }}</p>
+				<p v-for="tool in props.tools" class="tool" :class="`${tool}`">{{ tool }}</p>
 			</div>
 		</div>
 	</div>

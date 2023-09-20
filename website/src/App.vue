@@ -19,14 +19,14 @@ const navActions = ref(null);
 const root = document.querySelector(':root');
 const data = reactive({
 	showMenu: false,
-	isDarkMode: false,
+	isDarkMode: true,
 });
 
 onMounted(() => {
 	data.isDarkMode = themeStore.isDarkMode;
-	if (data.isDarkMode) {
-		root.style.setProperty('--text-color', '#FFFFFF');
-		root.style.setProperty('--bg-color', '#1C1C1C');
+	if (!data.isDarkMode) {
+		root.style.setProperty('--text-color', '#000000');
+		root.style.setProperty('--bg-color', '#FFFFFF');
 	}
 	var tl = anime.timeline({
 		easing: 'easeOutQuad',
