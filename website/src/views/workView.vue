@@ -10,6 +10,7 @@ import alertsjsImg from '../assets/projectImages/alertsjs.jpg';
 import gustavevensson_01 from '../assets/projectImages/gustavevensson_01.jpg';
 import gewebImg from '../assets/projectImages/geweb.jpg';
 import nested_border_radius from '../assets/projectImages/nested_border_radius.jpg'
+import partved from '../assets/projectImages/partved.jpg'
 
 const projects = [
 	{
@@ -25,6 +26,13 @@ const projects = [
 		webPath: 'https://nested-border-radius.web.app/',
 		gitPath: 'https://github.com/gustav-evensson/nested-border-radius',
 		tools: ['React', 'Tailwind', 'Firebase']
+	},
+	{
+		title: 'Partved',
+		img: partved,
+		webPath: 'https://partved.se',
+		gitPath: '',
+		tools: ['Nuxt', 'Vue', 'Scss', 'Firebase', 'Klarna']
 	},
 	{
 		title: 'Color Tinter',

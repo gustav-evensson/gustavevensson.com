@@ -63,7 +63,7 @@ onMounted(() => {
 <template>
 	<section id="home">
         <div class="homeContent">
-            <h1 ref="title">Hi i'm <span ref="filledChars">gustav</span><br />i'm a frontend developer</h1>
+            <h1 ref="title">Hi i'm <span ref="filledChars">gustav</span><br />i'm a fullstack developer</h1>
             <div ref="socialLinks" class="socialLinks">
                 <standard-link text="linkedin" path="https://www.linkedin.com/in/gustav-evensson-bb9547222/"/>
                 <standard-link text="github" path="https://github.com/gustav-evensson"/>
