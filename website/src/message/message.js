@@ -1,6 +1,7 @@
 import emailjs from '@emailjs/browser';
 
-const mailFormat = /^\w+([-]?\w+)*@\w+([-]?\w+)*(\.\w{2,3})+$/;
+// const mailFormat = /^\w+([-]?\w+)*@\w+([-]?\w+)*(\.\w{2,3})+$/;
+const mailFormat = /^[\w-\.]+@([\w-]+\.)+[\w-]{2,4}$/;
 
 const SEERVICE_ID = 'service_av91kdf';
 const PUBLIC_KEY = '_eD3yyrxRufBPIrqW';
