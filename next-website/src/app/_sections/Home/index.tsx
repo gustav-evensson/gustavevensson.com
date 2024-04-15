@@ -3,6 +3,7 @@ import { Mwp } from "@/components/MaxWidthProvider";
 import Link from "next/link";
 import { LinkComponent } from "@/components/LinkComponent";
 import ScrollAnimation from "@/components/ScrollAnimation";
+import Image from "next/image";
 
 export default function HomeSection() {
   return (
@@ -11,7 +12,9 @@ export default function HomeSection() {
       <Mwp className="flex flex-col items-center relative justify-center my-44">
         <div className="relative">
           <div className="absolute -top-32 sm:-translate-y-0 -translate-x-1/2 sm:-translate-x-0 sm:-top-1/3 left-1/2 sm:left-[10%]">
-            <span className="text-6xl sm:text-5xl lg:text-6xl xl:text-7xl animate-wave origin-bottom-right block">👋</span>
+            <div className="animate-wave origin-bottom-right size-16 sm:size-12 lg:size-16 xl:size-20">
+              <Image src="/wave.png" alt="wave" width={160} height={160} draggable="false" />
+            </div>
           </div>
           <h1 className="text-3xl sm:text-5xl lg:text-6xl xl:text-7xl text-muted-foreground font-bold uppercase text-center">
             hi i&apos;m{" "}

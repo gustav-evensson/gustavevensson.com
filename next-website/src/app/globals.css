@@ -120,6 +120,7 @@
   .overlay-shadow::before {
     content: '';
     position: absolute;
+    pointer-events: none;
     top: 0;
     left: 0;
     height: 100%;
@@ -130,6 +131,7 @@
   .overlay-shadow::after {
     content: '';
     position: absolute;
+    pointer-events: none;
     top: 0;
     right: 0;
     height: 100%;
