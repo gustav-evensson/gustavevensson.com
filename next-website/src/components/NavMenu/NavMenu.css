@@ -1,0 +1,87 @@
+@import '../../app/globals.css';
+
+.menuBtn * {
+  transition: x, y, width, height, opacity;
+  transition-duration: 200ms;
+  transition-timing-function: ease;
+}
+.menuBtn:hover .vertical {
+  y: 3px;
+  height: 46px;
+}
+.menuBtn:hover .horizontal {
+  x: 3px;
+  width: 46px;
+} 
+.menuBtn:hover .up {
+  x: 41px;
+}
+.menuBtn:hover .down {
+  x: 3px;
+}
+.menuBtn:hover .left {
+  y: 3px;
+}
+.menuBtn:hover .right {
+  y: 41px;
+}
+
+.navItem-transition-1 {
+  transition: border 150ms, opacity 300ms, transform 300ms;
+}
+.navItem-transition-2 {
+  transition: border 150ms, opacity 300ms 50ms, transform 300ms 50ms;
+}
+.navItem-transition-3 {
+  transition: border 150ms, opacity 300ms 100ms, transform 300ms 100ms;
+}
+.navItem-transition-4 {
+  transition: border 150ms, opacity 300ms 150ms, transform 300ms 150ms;
+}
+
+.navMenu .menuItems {
+  position: absolute;
+  bottom: -56px;
+  left: 50%;
+  translate: -50% 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 56px;
+}
+.navMenu .menuItems a {
+  color: hsl(var(--foreground));
+  writing-mode: vertical-lr;
+  rotate: 180deg;
+  text-orientation: mixed;
+  text-decoration: none;
+  font-size: 24px;
+  translate: 50%, 0;
+  opacity: 0;
+  pointer-events: none;
+  border-left: solid 2px transparent;
+}
+.navMenu.showMenu .menuBtn {
+  rotate: 45deg;
+}
+.navMenu.showMenu .menuBg {
+  opacity: 1;
+}
+.navMenu.showMenu .menuItems a {
+  pointer-events: all;
+}
+.navMenu.showMenu .menuItems a:hover {
+  border-color: hsl(var(--foreground));
+}
+.menuBg {
+  position: fixed;
+  width: 100%;
+  height: 100%;
+  top: 0;
+  left: 0;
+  background-color: hsl(var(--background));
+  opacity: 0;
+  pointer-events: none;
+  z-index: 23;
+  transition: opacity 300ms;
+}
