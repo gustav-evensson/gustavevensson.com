@@ -16,9 +16,9 @@ export default function AboutSection() {
               the latest a most popular tools.
             </span>
             <span className="mb-2 inline-block">
-              I run my own web agency called <a href="https://geweb.se" target="_blank" className="underline hover:text-primary">GeWeb</a>. Check it out or hit me upp to learn more about the work i do.
+              I run my own web agency called <a href="https://geweb.se" target="_blank" className="underline hover:text-primary">GeWeb</a>. Check it out or hit me upp to learn more about the work I do.
             </span>
-            <span className="inline-block">Check out the tools i use and some projects below!</span>
+            <span className="inline-block">Check out the tools I use and some projects below!</span>
           </p>
         </div>
         <div className="aspect-square w-full relative group max-w-xl">
