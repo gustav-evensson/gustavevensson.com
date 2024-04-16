@@ -21,7 +21,7 @@ export default function AboutSection() {
           </p>
         </div>
         <div className="aspect-square w-full relative group max-w-xl">
-          <div className="w-full aspect-square bg-foreground/10 border border-foreground absolute top-2 left-2 transition-all group-hover:top-4 group-hover:left-4 rounded-bl-lg md:rounded-bl-2xl" />
+          <div className="w-full aspect-square bg-foreground/10 border border-foreground absolute top-2 left-2 transition-all rounded-bl-lg md:rounded-bl-2xl" />
           <svg
             width="512"
             height="512"

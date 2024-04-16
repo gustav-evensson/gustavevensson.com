@@ -36,12 +36,12 @@ export default function RootLayout({
     <html lang="en">
       <body>
         <div className="fixed grid-bg inset-0" />
-          <ThemeProvider attribute="class" defaultTheme="light">
+          {/* <ThemeProvider attribute="class" defaultTheme="light"> */}
             <NavBar />
             {children}
             <Footer />
             <Toaster position="bottom-center" />
-          </ThemeProvider>
+          {/* </ThemeProvider> */}
       </body>
     </html>
   );
