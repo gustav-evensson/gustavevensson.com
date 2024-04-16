@@ -3,7 +3,7 @@
 import { cn } from "@/lib/utils";
 import "./NavMenu.css";
 import { useState } from "react";
-import { Button } from "../ui/button";
+import { Button } from "@/components/ui/button";
 
 export default function NavMenu() {
   const [showMenu, setShowMenu] = useState(false);

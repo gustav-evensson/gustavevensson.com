@@ -1,7 +1,7 @@
 import {Mwp} from '@/components/MaxWidthProvider'
 import GeIcon from '../icons/geIcon'
 import { ThemeToggle } from '../ThemeToggle'
-import NavMenu from '../NavMenu/NavMenu'
+import NavMenu from './NavMenu/NavMenu'
 
 export default function NavBar() {
   return (

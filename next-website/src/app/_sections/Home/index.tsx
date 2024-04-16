@@ -7,8 +7,8 @@ import Image from "next/image";
 
 export default function HomeSection() {
   return (
-    <section className="min-h-screen relative flex justify-center items-center grid-bg">
-      <div className="absolute inset-0 vignette"></div>
+    <section id="home" className="min-h-screen relative flex justify-center items-center">
+      <div className="absolute inset-0 vignette" />
       <Mwp className="flex flex-col items-center relative justify-center my-44">
         <div className="relative">
           <div className="absolute -top-32 sm:-translate-y-0 -translate-x-1/2 sm:-translate-x-0 sm:-top-1/3 left-1/2 sm:left-[10%]">

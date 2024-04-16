@@ -1,6 +1,7 @@
+import { LinkComponent } from "@/components/LinkComponent";
 import { Button } from "@/components/ui/button";
 import { cn } from "@/lib/utils";
-import { ExternalLinkIcon, GitHubLogoIcon } from "@radix-ui/react-icons";
+import { ExternalLinkIcon, GitHubLogoIcon, Link2Icon } from "@radix-ui/react-icons";
 import Image from "next/image";
 import Link from "next/link";
 
@@ -20,25 +21,47 @@ export type ProjectProps = {
 
 export default function ProjectCard({ name, image, githubLink, websiteLink, tags, reverse }: ProjectProps) {
   return (
-    <div className={cn("group max-w-5xl w-full", {
-      "self-start": !reverse,
-      "self-end": reverse,
-    })}>
-      <div className="relative mb-6">
-        <div className="w-full aspect-video rounded-bl-2xl top-2 left-2 bg-foreground/10 border border-foreground absolute -z-[1]" />
+    <div
+      className={cn("flex flex-col lg:flex-row gap-x-8 max-w-5xl w-full relative", {
+        "lg:flex-row-reverse lg:gap-x-6": reverse,
+      })}
+    >
+      <div className="relative w-full mb-6 lg:mb-0">
+        <div className="w-full aspect-[1655/1000] rounded-bl-lg md:rounded-bl-2xl top-2 left-2 bg-foreground/10 border border-foreground absolute" />
         <Image
           src={image.src}
           alt={image.alt}
           width={image.width}
           height={image.height}
-          className="rounded-bl-2xl w-full aspect-video object-cover"
+          className="rounded-bl-lg md:rounded-bl-2xl w-full aspect-[1655/1000] object-cover relative"
         />
       </div>
-      <div className={cn("flex flex-row items-center justify-between mb-6", {
-        "md:flex-row-reverse": reverse,
-      })}>
-        <h3 className="text-3xl">{name}</h3>
-        <div className="flex items-center gap-2">
+      <div className="flex items-start gap-4 lg:flex-col justify-between">
+        <div>
+          <h3 className="text-2xl sm:text-3xl mb-4">{name}</h3>
+          <div className={cn("items-center justify-start hidden lg:flex flex-wrap gap-2")}>
+            {tags.map((tag, index) => (
+              <span key={index} className="text-sm bg-foreground text-background rounded-full py-1 px-2">
+                {tag}
+              </span>
+            ))}
+          </div>
+        </div>
+        <div className="items-center gap-6 hidden sm:flex">
+          {websiteLink && (
+            <LinkComponent href={websiteLink} target="_blank">
+              <Link2Icon className="w-6 h-6" />
+              <span>Website</span>
+            </LinkComponent>
+          )}
+          {githubLink && (
+            <LinkComponent href={githubLink} target="_blank">
+              <Link2Icon className="w-6 h-6" />
+              <span>GitHub</span>
+            </LinkComponent>
+          )}
+        </div>
+        <div className="flex items-center gap-2 sm:hidden">
           {websiteLink && (
             <Button asChild variant={"ghost"} size={"icon"}>
               <Link href={websiteLink} target="_blank">
@@ -55,11 +78,9 @@ export default function ProjectCard({ name, image, githubLink, websiteLink, tags
           )}
         </div>
       </div>
-      <div className={cn("flex items-center justify-start flex-wrap gap-2", {
-        "lg:justify-end": reverse,
-      })}>
+      <div className={cn("items-center justify-start flex lg:hidden flex-wrap gap-2")}>
         {tags.map((tag, index) => (
-          <span key={index} className="text-sm font-bold bg-foreground text-background rounded-full py-1 px-2">
+          <span key={index} className="text-xs sm:text-sm bg-foreground text-background rounded-full py-1 px-2">
             {tag}
           </span>
         ))}
