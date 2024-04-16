@@ -33,21 +33,27 @@ export default function ProjectCard({ name, image, githubLink, websiteLink, tags
           alt={image.alt}
           width={image.width}
           height={image.height}
-          className="rounded-bl-lg md:rounded-bl-2xl w-full aspect-[1655/1000] object-cover relative"
+          className="rounded-bl-lg md:rounded-bl-2xl w-full aspect-[1655/1000] object-cover relative border border-foreground"
         />
       </div>
       <div className="flex items-start gap-4 lg:flex-col justify-between">
-        <div>
-          <h3 className="text-2xl sm:text-3xl mb-4">{name}</h3>
-          <div className={cn("items-center justify-start hidden lg:flex flex-wrap gap-2")}>
+        <div className="w-full">
+          <h3 className={cn("text-2xl sm:text-3xl mb-4 w-full", {
+            "lg:text-right": reverse,
+          })}>{name}</h3>
+          <div className={cn("items-center hidden justify-start lg:flex flex-wrap gap-2", {
+            "justify-end": reverse,
+          })}>
             {tags.map((tag, index) => (
-              <span key={index} className="text-sm bg-foreground text-background rounded-full py-1 px-2">
+              <span key={index} className="text-sm text-foreground bg-foreground/10 rounded-full py-1 px-2">
                 {tag}
               </span>
             ))}
           </div>
         </div>
-        <div className="items-center gap-6 hidden sm:flex">
+        <div className={cn("items-center gap-6 hidden justify-end w-full sm:flex", {
+          "lg:justify-start": !reverse,
+        })}>
           {websiteLink && (
             <LinkComponent href={websiteLink} target="_blank">
               <Link2Icon className="w-6 h-6" />
@@ -61,7 +67,7 @@ export default function ProjectCard({ name, image, githubLink, websiteLink, tags
             </LinkComponent>
           )}
         </div>
-        <div className="flex items-center gap-2 sm:hidden">
+        <div className="flex items-center justify-end gap-2 sm:hidden">
           {websiteLink && (
             <Button asChild variant={"ghost"} size={"icon"}>
               <Link href={websiteLink} target="_blank">
@@ -80,7 +86,7 @@ export default function ProjectCard({ name, image, githubLink, websiteLink, tags
       </div>
       <div className={cn("items-center justify-start flex lg:hidden flex-wrap gap-2")}>
         {tags.map((tag, index) => (
-          <span key={index} className="text-xs sm:text-sm bg-foreground text-background rounded-full py-1 px-2">
+          <span key={index} className="text-xs sm:text-sm text-foreground bg-foreground/10 rounded-full py-1 px-2">
             {tag}
           </span>
         ))}

@@ -26,17 +26,17 @@ export default function AboutSection() {
           <svg
             width="512"
             height="512"
-            className="size-full rounded-bl-lg md:rounded-bl-2xl"
+            className="size-full rounded-bl-lg md:rounded-bl-2xl border border-foreground relative"
             viewBox="0 0 512 512"
             fill="none"
             xmlns="http://www.w3.org/2000/svg"
           >
-            <rect width="512" height="512" className="fill-foreground transition-none" />
+            <rect width="512" height="512" className="fill-background transition-none" />
             <path
               fillRule="evenodd"
               clipRule="evenodd"
               d="M384 266H264V294C264 302 268 306 276 306H384V322H128V306H236C244 306 248 302 248 294V266H128V218C128 202 140 190 156 190L236 190C252 190 256 200 256 200C256 200 260 190 276 190H356C372 190 384 202 384 218V266ZM144 250H248V218C248 210 244 206 236 206H156C148 206 144 210 144 218V250ZM368 250H264V218C264 210 268 206 276 206H356C364 206 368 210 368 218V250Z"
-              className="fill-background"
+              className="fill-foreground"
             />
           </svg>
         </div>

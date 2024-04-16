@@ -23,20 +23,64 @@ const projects: ProjectProps[] = [
       height: 1000,
     },
     tags: ["Next.js", "TailwindCSS", "TypeScript", "Resend", "Contentful", "Vercel"],
-    githubLink: "https://github.com/gustav-evensson",
     websiteLink: "https://geweb.se/",
   },
   {
-    name: "Project 1",
+    name: "Sjögren Innovation",
     image: {
-      src: "/ge_logo_bg_black_512.jpg",
-      alt: "Project 1",
-      width: 1024,
-      height: 1024,
+      src: "/projects/sjogren-innovation.png",
+      alt: "Sjögren Innovation",
+      width: 1655,
+      height: 1000,
     },
-    tags: ["Next.js", "TailwindCSS", "TypeScript"],
-    githubLink: "https://github.com/gustav-evensson",
-    websiteLink: "https://github.com/gustav-evensson",
+    tags: ["Next.js", "TailwindCSS", "TypeScript", "Resend", "Contentful", "Vercel"],
+    websiteLink: "https://sjogreninnovation.se/",
+  },
+  {
+    name: "Nested Border Radius",
+    image: {
+      src: "/projects/nested-border-radius.png",
+      alt: "Nested Border Radius",
+      width: 1655,
+      height: 1000,
+    },
+    tags: ["React", "TailwindCSS", "Firebase", "Open Source"],
+    githubLink: "https://github.com/gustav-evensson/nested-border-radius",
+    websiteLink: "https://nested-border-radius.web.app/",
+  },
+  {
+    name: "Partved",
+    image: {
+      src: "/projects/partved.png",
+      alt: "Partved",
+      width: 1655,
+      height: 1000,
+    },
+    tags: ["Nuxt", "Scss", "Firebase", "Klarna"],
+    websiteLink: "https://partved.se/",
+  },
+  {
+    name: "GeWeb v1",
+    image: {
+      src: "/projects/geweb-v1.png",
+      alt: "GeWeb v1",
+      width: 1655,
+      height: 1000,
+    },
+    tags: ["Nuxt", "Vue", "Scss", "Firebase"],
+    websiteLink: "https://geweb-website.web.app/"
+  },
+  {
+    name: "ColorTinter",
+    image: {
+      src: "/projects/colortinter.png",
+      alt: "ColorTinter",
+      width: 1655,
+      height: 1000,
+    },
+    tags: ["Vue", "Scss", "Firebase", "Open Source"],
+    githubLink: "https://github.com/gustav-evensson/color-tinter",
+    websiteLink: "https://color-tinter.web.app/",
   },
 ]
 
