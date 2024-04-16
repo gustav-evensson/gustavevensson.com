@@ -50,7 +50,7 @@ export const sendEmail = async (data: FormData): Promise<EmailResponse> => {
 
   try {
     const res = await resend.emails.send({
-      from: "message@gustavevensson.com",
+      from: "message@geweb.se",
       to: process.env.TO_EMAIL || "",
       subject: `Nytt medddelande på gustavevensson.com från ${formData.name}!`,
       html: `
