@@ -9,7 +9,7 @@ export default function NavBar() {
       <Mwp size="2xl" className="flex items-center justify-between">
         <GeIcon size={48} />
         <div className="flex items-center gap-4">
-          <ThemeToggle />
+          {/* <ThemeToggle /> */}
           <NavMenu />
         </div>
       </Mwp>

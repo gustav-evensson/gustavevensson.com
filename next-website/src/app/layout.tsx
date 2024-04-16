@@ -36,7 +36,7 @@ export default function RootLayout({
     <html lang="en">
       <body>
         <div className="fixed grid-bg inset-0" />
-          <ThemeProvider attribute="class" defaultTheme="dark">
+          <ThemeProvider attribute="class" defaultTheme="light">
             <NavBar />
             {children}
             <Footer />

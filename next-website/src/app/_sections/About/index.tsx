@@ -1,6 +1,5 @@
 import { Mwp } from "@/components/MaxWidthProvider";
 import SectionNumber from "@/components/SectionNumber";
-import Image from "next/image";
 
 export default function AboutSection() {
   return (
