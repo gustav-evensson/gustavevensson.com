@@ -52,6 +52,7 @@ export default function ContactForm(){
         {...register("name")}
         type="text"
         placeholder="Name"
+        autoComplete="off"
         className="p-2 px-3 rounded-bl-lg border border-transparent w-full bg-secondary focus-visible:ring-0 transition-[border] focus-visible:border-foreground"
       />
       <input
