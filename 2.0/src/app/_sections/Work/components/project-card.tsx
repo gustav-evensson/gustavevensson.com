@@ -32,11 +32,11 @@ const ProjectCard = ({
     <BlurFade
       inView
       className={cn(
-        "relative flex flex-col md:flex-row items-center gap-6 md:gap-4",
+        "relative flex flex-col md:flex-row items-center gap-6 md:gap-4 group",
         reversed && "md:flex-row-reverse"
       )}
     >
-      <div className="relative w-full md:w-2/3 aspect-video">
+      <div className={cn("relative w-full md:w-2/3 aspect-video transition-transform duration-500 md:group-hover:translate-x-4", reversed && "md:group-hover:-translate-x-4")}>
         <div className="w-full z-10 aspect-video relative border border-primary/70 rounded-bl-lg overflow-hidden">
           <Image src={image.src} alt={image.alt} fill className="object-cover object-top" />
           <div className="absolute inset-0 bg-primary/20" />
@@ -45,8 +45,8 @@ const ProjectCard = ({
       </div>
       <div
         className={cn(
-          "md:absolute z-10 right-0 top-1/2 md:-translate-y-1/2 flex flex-col items-start md:items-end gap-2 w-full md:w-1/2",
-          reversed && "left-0 md:items-start"
+          "md:absolute z-10 right-0 top-1/2 md:-translate-y-1/2 flex flex-col items-start md:items-end gap-2 w-full md:w-1/2 transition-transform duration-500 md:group-hover:-translate-x-4",
+          reversed && "left-0 md:items-start md:group-hover:translate-x-4"
         )}
       >
         <h5
@@ -57,7 +57,7 @@ const ProjectCard = ({
         <h3 className={cn("text-2xl font-medium font-figtree mb-2", !reversed && "text-right")}>
           {title}
         </h3>
-        <div className="bg-muted/30 md:bg-muted/70 border border-border/80 rounded-bl-lg backdrop-blur-sm p-4 mb-2">
+        <div className="bg-muted/30 md:bg-muted/70 border border-border/80 transition-colors md:group-hover:border-primary/70 md:group-hover:bg-muted duration-500 rounded-bl-lg backdrop-blur-sm p-4 mb-2">
           <p className={cn("font-figtree mb-2", !reversed && "md:text-right")}>{description}</p>
           <div
             className={cn(
