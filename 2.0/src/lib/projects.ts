@@ -22,6 +22,17 @@ export const projects = [
     liveLink: "https://ehtkollen.se",
   },
   {
+    title: "Best way to do fonts in Next.js?",
+    subtitle: "Featured article",
+    description: "Fonts is something that all web developers is going to have to deal with at some point in every project. It can be tricky to integrate them in a convenient and performant way.",
+    image: {
+      src: "/projects/nextjs_tailwind_google_fonts.jpg",
+      alt: "Next.js + Tailwind + Google Fonts",
+    },
+    tags: ["Next.js", "Tailwind", "Google Fonts", "Medium"],
+    liveLink: "https://medium.com/@gustav-evensson/is-this-the-best-way-to-do-fonts-in-next-js-05bbf7339ae4",
+  },
+  {
     title: "Flow ",
     subtitle: "Featured project",
     description:
